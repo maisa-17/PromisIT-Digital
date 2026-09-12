@@ -41,15 +41,15 @@ export default function ContactPage() {
   return (
     <>
       {/* Intro */}
-      <section className="bg-gray-50 py-20 md:py-28">
+      <section className="bg-gray-50 py-20 dark:bg-gray-950 md:py-28">
         <Container>
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-saffron-dark">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent-dark">
             Contact Us
           </p>
-          <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
+          <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-gray-900 dark:text-white md:text-5xl">
             Let&apos;s work together
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-400">
             Have a question about a service, or want to check what documents
             to bring? Fill out the form below, message us on WhatsApp, or
             visit us during working hours.
@@ -61,7 +61,7 @@ export default function ContactPage() {
       <section className="py-20">
         <Container className="grid gap-12 md:grid-cols-5">
           <div className="md:col-span-3">
-            <div className="rounded-2xl border border-gray-200 p-8">
+            <div className="rounded-2xl border border-gray-200 p-8 dark:border-gray-800">
               <ContactForm />
             </div>
           </div>
@@ -73,13 +73,13 @@ export default function ContactPage() {
                   key={card.label}
                   className={`rounded-2xl border p-6 ${
                     card.label === "WhatsApp"
-                      ? "border-saffron/30 bg-saffron/5"
-                      : "border-gray-200"
+                      ? "border-accent/30 bg-accent/5"
+                      : "border-gray-200 dark:border-gray-800"
                   }`}
                 >
                   <p
                     className={`text-xs font-semibold uppercase tracking-wider ${
-                      card.label === "WhatsApp" ? "text-saffron-dark" : "text-brand"
+                      card.label === "WhatsApp" ? "text-accent-dark" : "text-primary"
                     }`}
                   >
                     {card.label}
@@ -89,12 +89,12 @@ export default function ContactPage() {
                       href={card.href}
                       target={card.href.startsWith("http") ? "_blank" : undefined}
                       rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="mt-2 block text-lg font-medium text-gray-900 hover:text-brand"
+                      className="mt-2 block text-lg font-medium text-gray-900 hover:text-primary dark:text-white"
                     >
                       {card.value}
                     </a>
                   ) : (
-                    <p className="mt-2 text-lg font-medium text-gray-900">{card.value}</p>
+                    <p className="mt-2 text-lg font-medium text-gray-900 dark:text-white">{card.value}</p>
                   )}
                 </div>
               ))}

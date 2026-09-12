@@ -4,78 +4,84 @@ export type Service = {
   summary: string;
   description: string;
   features: string[];
-  icon: "id-card" | "receipt" | "certificate" | "shield" | "passport" | "vote" | "printer" | "graduation";
+  // Optional real photo/graphic for the services list card — falls back to
+  // a gradient + icon placeholder when not set.
+  photo?: string;
+  icon:
+    | "id-card"
+    | "receipt"
+    | "certificate"
+    | "shield"
+    | "passport"
+    | "vote"
+    | "printer"
+    | "graduation"
+    | "car"
+    | "ration"
+    | "building"
+    | "ticket"
+    | "legal";
 };
 
 export const services: Service[] = [
   {
-    slug: "pan-card",
-    title: "PAN Card Services",
-    summary: "New PAN applications and corrections, handled for you.",
+    slug: "rto-services",
+    title: "RTO / Motor Vehicle Services",
+    summary: "Driving licence and RC services, without the RTO queue.",
     description:
-      "We help you apply for a new PAN card or correct existing details — no confusing forms, no repeat trips.",
+      "From a new learner's licence to a vehicle ownership transfer, we handle your Regional Transport Office applications correctly the first time.",
     features: [
-      "New PAN card application (individuals)",
-      "Correction of name, date of birth or photo",
-      "Guidance on required documents",
-      "Application status tracking",
+      "Driving Licence — new, renewal, duplicate, address change, IDP",
+      "Learner's Licence application",
+      "RC services — ownership transfer, duplicate RC, hypothecation",
+      "RC address change, NOC, fitness, renewal & road tax payment",
     ],
-    icon: "id-card",
-  },
-  {
-    slug: "bill-payments",
-    title: "Bill Payments & Recharge",
-    summary: "Electricity, water, mobile and DTH — paid on the spot.",
-    description:
-      "Skip the queues. Pay your utility bills and recharge your mobile or DTH connection right here, with an instant receipt.",
-    features: [
-      "Electricity & water bill payments",
-      "Mobile and DTH recharge (BBPS)",
-      "Instant payment receipt",
-      "All major operators and providers",
-    ],
-    icon: "receipt",
+    photo: "/services/rto.png",
+    icon: "car",
   },
   {
     slug: "certificates",
     title: "Government Certificates",
-    summary: "Income, caste, domicile, birth & death certificates.",
+    summary: "Income, marriage, encumbrance and more — done right the first time.",
     description:
-      "We assist with applications for essential government certificates, guiding you through documentation and submission.",
+      "We assist with a wide range of government certificates and legal documents, guiding you through documentation and submission.",
     features: [
-      "Income certificate",
-      "Caste certificate",
-      "Domicile / residence certificate",
-      "Birth and death certificates",
+      "Income, caste & residence certificates",
+      "Marriage Certificate & Special Marriage Certificate",
+      "Encumbrance Certificate & Certified Copy",
+      "Jeevan Pramaan — digital life certificate for pensioners",
     ],
+    photo: "/services/certificate.jpg",
     icon: "certificate",
   },
   {
-    slug: "insurance",
-    title: "Insurance Schemes",
-    summary: "PMJJBY, PMSBY and PMFBY enrollment assistance.",
+    slug: "pan-card",
+    title: "PAN Card Services",
+    summary: "New PAN applications, corrections and reprints.",
     description:
-      "Get enrolled in government insurance schemes offering life, accident and crop cover at affordable premiums.",
+      "We help you apply for a new PAN card, correct existing details, or get a reprint — no confusing forms, no repeat trips.",
     features: [
-      "Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY)",
-      "Pradhan Mantri Suraksha Bima Yojana (PMSBY)",
-      "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
-      "Help with claims and renewals",
+      "New PAN card application (individuals)",
+      "Correction of name, date of birth or photo",
+      "Duplicate / reprint of PAN card",
+      "Guidance on required documents",
     ],
-    icon: "shield",
+    photo: "/services/pan-card.jpg",
+    icon: "id-card",
   },
   {
     slug: "passport",
-    title: "Passport Assistance",
-    summary: "Support with your Passport Seva application.",
+    title: "Passport Services",
+    summary: "New, Tatkal, renewal and correction applications.",
     description:
       "We guide you through the online Passport Seva application, document checklist and appointment booking process.",
     features: [
-      "New passport applications",
+      "New passport application",
+      "Tatkal (urgent) passport application",
       "Renewal and reissue applications",
-      "Document checklist guidance",
-      "Appointment slot booking support",
+      "Correction of passport details",
     ],
+    photo: "/services/passport.jpg",
     icon: "passport",
   },
   {
@@ -90,35 +96,123 @@ export const services: Service[] = [
       "Shifting of constituency",
       "Application status check",
     ],
+    photo: "/services/voter-id.jpg",
     icon: "vote",
   },
   {
-    slug: "printing",
-    title: "Printing, Xerox & Scanning",
-    summary: "Document printing, photocopying, scanning and photos.",
+    slug: "insurance",
+    title: "Insurance Services",
+    summary: "Health and vehicle insurance, sorted quickly.",
     description:
-      "Quick, affordable printing and document services for all your personal and application needs.",
+      "Get enrolled in health and vehicle insurance policies, with help understanding your cover and filing claims.",
     features: [
-      "Black & white and colour printing",
-      "Photocopying and scanning",
-      "Passport-size photos",
-      "Document lamination",
+      "Health insurance enrollment",
+      "Vehicle insurance — new policy & renewal",
+      "Help understanding policy documents",
+      "Assistance with claims",
     ],
+    photo: "/services/insurance.jpg",
+    icon: "shield",
+  },
+  {
+    slug: "ration-card",
+    title: "Ration Card Services",
+    summary: "New cards, member updates and transfers.",
+    description:
+      "We handle new ration card applications and updates to your existing card through the Civil Supplies Department.",
+    features: [
+      "New ration card application",
+      "Add a family member",
+      "Reduction of member",
+      "Transfer of ration card",
+    ],
+    photo: "/services/ration-card.jpg",
+    icon: "ration",
+  },
+  {
+    slug: "bill-payments",
+    title: "Bill Payments & Recharges",
+    summary: "Utility bills and recharges, paid on the spot.",
+    description:
+      "Skip the queues. Pay your taxes, utility bills, and recharge your mobile, FASTag or DTH right here, with an instant receipt.",
+    features: [
+      "Land Tax & Building Tax payments",
+      "KSEB electricity & water bill payments",
+      "Mobile, landline & broadband bill payments",
+      "PNG gas & cable TV bill payments",
+      "Mobile, FASTag & DTH recharge",
+    ],
+    photo: "/services/bill-payments.png",
+    icon: "receipt",
+  },
+  {
+    slug: "land-municipality",
+    title: "Land & Municipality Services",
+    summary: "Municipality licences and land conversion (Tharam Maattam).",
+    description:
+      "Assistance with local body licences and land classification change applications through the Revenue Department.",
+    features: [
+      "Municipality Licence — new & renewal",
+      "Tharam Maattam (land conversion) — Form 5",
+      "Tharam Maattam (land conversion) — Form 6",
+    ],
+    photo: "/services/land-municipality.png",
+    icon: "building",
+  },
+  {
+    slug: "student-support",
+    title: "Student Support Services",
+    summary: "Exam forms, admissions and learning support.",
+    description:
+      "From filling online exam applications to college admissions, we help students and job seekers stay on track.",
+    features: [
+      "School / college application assistance",
+      "Fee remittance",
+      "Entrance exam forms — NEET, KEAM, JEE, PG",
+      "PSC, SSC & banking exam applications",
+      "Access to learning apps & online courses",
+    ],
+    photo: "/services/student-support.png",
+    icon: "graduation",
+  },
+  {
+    slug: "printing-lamination",
+    title: "Printing, Lamination & PVC Cards",
+    summary: "Print, laminate and get durable PVC ID cards made.",
+    description:
+      "Quick, affordable printing and document services, plus durable lamination and PVC card printing for your ID documents.",
+    features: [
+      "Scan, print & email; colour & B/W photocopy; photo printing",
+      "Lamination — ID cards, ration cards, A3/A4/legal size",
+      "PVC card printing — PAN, ration, driving licence, e-Shram & more",
+      "Typing (English & Malayalam), resumes & deed preparation",
+    ],
+    photo: "/services/printing-lamination.png",
     icon: "printer",
   },
   {
-    slug: "education",
-    title: "Education Services",
-    summary: "Exam forms, admit cards, results and tele-law support.",
+    slug: "travel-ticketing",
+    title: "Travel & Ticket Booking",
+    summary: "Air, train and bus tickets booked for you.",
     description:
-      "From filling online exam applications to printing admit cards and results, we help students and job seekers stay on track.",
+      "Book your travel tickets with us — no need to juggle multiple apps and websites.",
+    features: ["Air ticket booking", "Train ticket booking (IRCTC)", "Bus ticket booking"],
+    photo: "/services/travel-ticketing.png",
+    icon: "ticket",
+  },
+  {
+    slug: "tele-law",
+    title: "Tele Law",
+    summary: "Free legal advice, connected over video call.",
+    description:
+      "Speak with a panel lawyer over video call for guidance on common legal issues, under the Tele-Law scheme.",
     features: [
-      "Online exam form filling",
-      "Admit card & result printouts",
-      "Scholarship application assistance",
-      "Tele-law and legal aid services",
+      "Consultation with panel lawyers",
+      "Guidance on common legal issues",
+      "Support for eligible citizens under the Tele-Law scheme",
     ],
-    icon: "graduation",
+    photo: "/services/tele-law.png",
+    icon: "legal",
   },
 ];
 
@@ -189,7 +283,7 @@ export const galleryItems: GalleryItem[] = [
   {
     title: "Insurance Enrollment Camp",
     category: "Community Camps",
-    description: "An outreach camp helping residents enroll in PMSBY/PMJJBY.",
+    description: "An outreach camp helping residents enroll in health and vehicle insurance.",
   },
   {
     title: "Certificate Collection",

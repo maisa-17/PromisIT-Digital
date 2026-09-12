@@ -1,9 +1,12 @@
 export const siteConfig = {
-  name: "CSC Digital Seva Kendra, Kakkanad",
-  shortName: "CSC Digital Seva",
+  name: "PromisIt Digital Solutions",
+  shortName: "PromisIt",
+  brandLine2: "Digital Solutions",
+  // The CSC franchise identity this business operates under
+  csc: "CSC Digital Seva Kendra, Kakkanad",
   tagline: "Your Trusted Common Service Centre in Kakkanad",
   description:
-    "An authorized CSC (Common Service Centre) Digital Seva Kendra in Kakkanad, Kerala — bringing PAN card, bill payments, government certificates, insurance, passport, Voter ID, printing and education services to your doorstep.",
+    "PromisIt Digital Solutions is an authorized CSC (Common Service Centre) Digital Seva Kendra in Kakkanad, Kerala — offering RTO, PAN card, passport, certificates, insurance, ration card, bill payments and 13+ other government and digital services, all under one roof.",
   email: "cscdigitalsevakkd@gmail.com",
   emailCc: "promisitsolutions@gmail.com",
   phone: "9074587256",

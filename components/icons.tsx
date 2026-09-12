@@ -110,6 +110,84 @@ function GraduationIcon({ className }: IconProps) {
   );
 }
 
+function CarIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M4.5 15.5 6 10a2 2 0 0 1 1.9-1.5h8.2A2 2 0 0 1 18 10l1.5 5.5"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <rect x="3" y="15.5" width="18" height="4.5" rx="1.25" stroke="currentColor" strokeWidth="1.75" />
+      <circle cx="7.5" cy="20" r="1.25" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="16.5" cy="20" r="1.25" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M4.5 15.5h15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function RationIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M6 9.5h12l-1.2 10.2a1.5 1.5 0 0 1-1.5 1.3H8.7a1.5 1.5 0 0 1-1.5-1.3L6 9.5Z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+      <path d="M9 9.5V6a3 3 0 0 1 6 0v3.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+      <path d="M9.5 13v5M14.5 13v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function BuildingIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path d="M5 20.5V6l7-3 7 3v14.5" stroke="currentColor" strokeWidth="1.75" strokeLinejoin="round" />
+      <path d="M3 20.5h18" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+      <path
+        d="M9 20.5v-4a3 3 0 0 1 6 0v4M9 9.5h.01M12 9.5h.01M15 9.5h.01M9 13h.01M12 13h.01M15 13h.01"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function TicketIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M4 9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1.5a1.75 1.75 0 0 0 0 3.5V16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2a1.75 1.75 0 0 0 0-3.5V9Z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+      <path d="M14 7.5v9" stroke="currentColor" strokeWidth="1.5" strokeDasharray="2 2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function LegalIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path d="M12 3.5v3M4 8l4.5-1.5M19.5 8 15 6.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M4 8h5l-2.5 5.5A2.6 2.6 0 0 1 4 15a2.6 2.6 0 0 1-2.5-1.5L4 8ZM19.5 8h-5l2.5 5.5a2.6 2.6 0 0 0 2.5 1.5 2.6 2.6 0 0 0 2.5-1.5L19.5 8Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <path d="M12 6.5v14M8 20.5h8" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 const icons: Record<Service["icon"], (props: IconProps) => React.ReactElement> = {
   "id-card": IdCardIcon,
   receipt: ReceiptIcon,
@@ -119,6 +197,11 @@ const icons: Record<Service["icon"], (props: IconProps) => React.ReactElement> =
   vote: VoteIcon,
   printer: PrinterIcon,
   graduation: GraduationIcon,
+  car: CarIcon,
+  ration: RationIcon,
+  building: BuildingIcon,
+  ticket: TicketIcon,
+  legal: LegalIcon,
 };
 
 export function ServiceIcon({

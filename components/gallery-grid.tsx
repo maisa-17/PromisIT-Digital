@@ -3,13 +3,15 @@
 import { useMemo, useState } from "react";
 import type { GalleryItem } from "@/lib/data";
 
+// Fixed (non-theme-adaptive) pastel gradients — these tiles stand in for
+// photos, so they stay bright in both light and dark mode.
 const palettes = [
-  "from-brand-light to-blue-50",
+  "from-sky-100 to-blue-50",
   "from-orange-100 to-amber-50",
-  "from-flag-green-light to-emerald-50",
-  "from-blue-100 to-brand-light",
+  "from-violet-100 to-purple-50",
+  "from-blue-100 to-sky-50",
   "from-amber-100 to-orange-50",
-  "from-emerald-100 to-flag-green-light",
+  "from-emerald-100 to-teal-50",
 ];
 
 export function GalleryGrid({ items }: { items: GalleryItem[] }) {
@@ -32,8 +34,8 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
             onClick={() => setActive(category)}
             className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
               active === category
-                ? "border-brand bg-brand text-white"
-                : "border-gray-300 text-gray-700 hover:border-brand/40"
+                ? "border-primary bg-primary text-white"
+                : "border-gray-300 text-gray-700 hover:border-primary/40 dark:border-gray-700 dark:text-gray-300"
             }`}
           >
             {category}
@@ -45,7 +47,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
         {filtered.map((item, index) => (
           <div
             key={item.title}
-            className="overflow-hidden rounded-2xl border border-gray-200"
+            className="overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900"
           >
             <div
               className={`flex aspect-[4/3] items-center justify-center bg-gradient-to-br ${
@@ -61,11 +63,11 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
               </span>
             </div>
             <div className="p-6">
-              <p className="text-xs font-semibold uppercase tracking-wider text-brand">
+              <p className="text-xs font-semibold uppercase tracking-wider text-primary">
                 {item.category}
               </p>
-              <h3 className="mt-2 text-lg font-bold text-gray-900">{item.title}</h3>
-              <p className="mt-2 text-sm text-gray-600">{item.description}</p>
+              <h3 className="mt-2 text-lg font-bold text-gray-900 dark:text-white">{item.title}</h3>
+              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{item.description}</p>
             </div>
           </div>
         ))}

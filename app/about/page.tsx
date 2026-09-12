@@ -14,15 +14,15 @@ export default function AboutPage() {
   return (
     <>
       {/* Intro */}
-      <section className="bg-gray-50 py-20 md:py-28">
+      <section className="bg-gray-50 py-20 dark:bg-gray-950 md:py-28">
         <Container>
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-saffron-dark">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent-dark">
             About Us
           </p>
-          <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
+          <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-gray-900 dark:text-white md:text-5xl">
             Bringing government services to your doorstep
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-600">
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-400">
             {siteConfig.name} is an authorized CSC (Common Service Centre)
             under the Digital Seva initiative, serving the Kakkanad
             community with everyday government and digital services — done
@@ -35,8 +35,8 @@ export default function AboutPage() {
       <section className="py-20">
         <Container>
           <div className="grid gap-8 md:grid-cols-2">
-            <div className="rounded-2xl border border-gray-200 p-8">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-light text-brand">
+            <div className="rounded-2xl border border-gray-200 p-8 dark:border-gray-800">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-light text-primary">
                 <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
                   <path
                     d="M12 3.5 19 6v6c0 4.5-3 7.5-7 8.5-4-1-7-4-7-8.5V6l7-2.5Z"
@@ -46,8 +46,8 @@ export default function AboutPage() {
                   />
                 </svg>
               </span>
-              <h2 className="mt-5 text-2xl font-bold text-gray-900">Our Mission</h2>
-              <p className="mt-3 text-gray-600 leading-7">
+              <h2 className="mt-5 text-2xl font-bold text-gray-900 dark:text-white">Our Mission</h2>
+              <p className="mt-3 text-gray-600 leading-7 dark:text-gray-400">
                 To bring essential government and digital services to the
                 doorstep of every citizen in Kakkanad — delivered
                 accurately, affordably, and without the hassle of navigating
@@ -55,8 +55,8 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 p-8">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-flag-green-light text-flag-green">
+            <div className="rounded-2xl border border-gray-200 p-8 dark:border-gray-800">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-violet-light text-violet">
                 <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
                   <circle cx="12" cy="12" r="3.25" stroke="currentColor" strokeWidth="1.75" />
                   <path
@@ -67,8 +67,8 @@ export default function AboutPage() {
                   />
                 </svg>
               </span>
-              <h2 className="mt-5 text-2xl font-bold text-gray-900">Our Vision</h2>
-              <p className="mt-3 text-gray-600 leading-7">
+              <h2 className="mt-5 text-2xl font-bold text-gray-900 dark:text-white">Our Vision</h2>
+              <p className="mt-3 text-gray-600 leading-7 dark:text-gray-400">
                 A digitally empowered and financially included community,
                 where every resident of Kakkanad can access government
                 schemes and essential services conveniently, close to home.
@@ -79,7 +79,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 py-20 dark:bg-gray-950">
         <Container>
           <SectionHeading
             eyebrow="What guides us"
@@ -88,18 +88,18 @@ export default function AboutPage() {
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {values.map((value, index) => {
-              const accents = ["bg-brand", "bg-saffron", "bg-flag-green", "bg-brand"];
+              const accents = ["bg-primary", "bg-accent", "bg-violet", "bg-primary"];
               return (
                 <div
                   key={value.title}
-                  className="overflow-hidden rounded-2xl border border-gray-200 bg-white p-6"
+                  className="overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900"
                 >
                   <span
                     className={`block h-1 w-10 rounded-full ${accents[index % accents.length]}`}
                     aria-hidden="true"
                   />
-                  <h3 className="mt-4 text-lg font-bold text-gray-900">{value.title}</h3>
-                  <p className="mt-2 text-gray-600">{value.description}</p>
+                  <h3 className="mt-4 text-lg font-bold text-gray-900 dark:text-white">{value.title}</h3>
+                  <p className="mt-2 text-gray-600 dark:text-gray-400">{value.description}</p>
                 </div>
               );
             })}
@@ -110,17 +110,17 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-20">
         <Container className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
             Need a service today?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-gray-600">
+          <p className="mx-auto mt-4 max-w-xl text-lg text-gray-600 dark:text-gray-400">
             Visit our centre in Kakkanad or reach out — we&apos;re happy to
             help.
           </p>
           <div className="mt-8">
             <Link
               href="/contact"
-              className="inline-block rounded-lg bg-brand px-8 py-3 font-semibold text-white transition-colors hover:bg-brand-dark"
+              className="inline-block rounded-lg bg-primary px-8 py-3 font-semibold text-white transition-colors hover:bg-primary-dark"
             >
               Get in Touch
             </Link>

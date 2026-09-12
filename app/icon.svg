@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pFavGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0369A1" />
+    </linearGradient>
+    <linearGradient id="dFavGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F43F5E" />
+      <stop offset="100%" stop-color="#BE123C" />
+    </linearGradient>
+    <linearGradient id="overlapFavGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6D28D9" />
+      <stop offset="100%" stop-color="#4C1D95" />
+    </linearGradient>
+    <filter id="favShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="3" dy="6" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <g transform="translate(15, 25) scale(0.95)" filter="url(#favShadow)">
+    <path d="M 120 20 L 170 20 C 235 20 270 65 270 130 C 270 195 235 240 170 240 L 120 240 L 120 185 L 165 185 C 195 185 215 165 215 130 C 215 95 195 75 165 75 L 120 75 Z" fill="url(#dFavGrad)"/>
+    <path d="M 30 20 L 130 20 C 175 20 205 50 205 95 C 205 140 175 170 130 170 L 80 170 L 80 240 L 30 240 Z" fill="url(#pFavGrad)"/>
+    <path d="M 80 65 L 125 65 C 140 65 155 75 155 95 C 155 115 140 125 125 125 L 80 125 Z" fill="#FFFFFF"/>
+    <rect x="80" y="125" width="45" height="45" fill="url(#overlapFavGrad)"/>
+  </g>
+</svg>

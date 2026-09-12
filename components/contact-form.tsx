@@ -37,7 +37,7 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-900">
+          <label htmlFor="name" className="block text-sm font-medium text-gray-900 dark:text-gray-200">
             Full name
           </label>
           <input
@@ -46,11 +46,11 @@ export function ContactForm() {
             type="text"
             required
             placeholder="Jane Doe"
-            className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-2.5 text-gray-900 outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+            className="mt-2 w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 outline-none focus:border-primary focus:ring-1 focus:ring-primary dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:placeholder-gray-500"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-900">
+          <label htmlFor="email" className="block text-sm font-medium text-gray-900 dark:text-gray-200">
             Email address
           </label>
           <input
@@ -59,20 +59,20 @@ export function ContactForm() {
             type="email"
             required
             placeholder="you@example.com"
-            className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-2.5 text-gray-900 outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+            className="mt-2 w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 outline-none focus:border-primary focus:ring-1 focus:ring-primary dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:placeholder-gray-500"
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="service" className="block text-sm font-medium text-gray-900">
+        <label htmlFor="service" className="block text-sm font-medium text-gray-900 dark:text-gray-200">
           What are you interested in?
         </label>
         <select
           id="service"
           name="service"
           defaultValue=""
-          className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-2.5 text-gray-900 outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+          className="mt-2 w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 outline-none focus:border-primary focus:ring-1 focus:ring-primary dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:placeholder-gray-500"
         >
           <option value="" disabled>
             Select a service
@@ -87,7 +87,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-900">
+        <label htmlFor="message" className="block text-sm font-medium text-gray-900 dark:text-gray-200">
           Message
         </label>
         <textarea
@@ -96,14 +96,14 @@ export function ContactForm() {
           required
           rows={5}
           placeholder="Tell us what you need help with — we'll let you know what documents to bring."
-          className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-2.5 text-gray-900 outline-none focus:border-brand focus:ring-1 focus:ring-brand"
+          className="mt-2 w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 outline-none focus:border-primary focus:ring-1 focus:ring-primary dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:placeholder-gray-500"
         />
       </div>
 
       <div className="flex flex-wrap gap-3">
         <button
           type="submit"
-          className="rounded-lg bg-brand px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-dark"
+          className="rounded-lg bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-dark"
         >
           Send Message
         </button>
@@ -111,17 +111,17 @@ export function ContactForm() {
           href={`https://wa.me/91${siteConfig.whatsapp}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-lg bg-saffron px-6 py-3 font-semibold text-white transition-colors hover:bg-saffron-dark"
+          className="rounded-lg bg-accent px-6 py-3 font-semibold text-white transition-colors hover:bg-accent-dark"
         >
           Or WhatsApp Us Instead
         </a>
       </div>
 
       {submitted && (
-        <p className="text-sm text-gray-600" role="status">
+        <p className="text-sm text-gray-600 dark:text-gray-400" role="status">
           Your email app should now be open with your message pre-filled —
           just hit send. If nothing opened, email us directly at{" "}
-          <a href={`mailto:${siteConfig.email}`} className="font-medium text-brand">
+          <a href={`mailto:${siteConfig.email}`} className="font-medium text-primary">
             {siteConfig.email}
           </a>
           .
