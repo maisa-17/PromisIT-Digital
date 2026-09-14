@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/container";
 import { HeroParallax } from "@/components/hero-parallax";
 import { SectionHeading } from "@/components/section-heading";
+import { SparklesCore } from "@/components/sparkles";
 import { TestimonialCard } from "@/components/testimonial-card";
 import { services, testimonials } from "@/lib/data";
 import { siteConfig } from "@/lib/site";
@@ -124,28 +125,39 @@ export default function Home() {
       {/* CTA */}
       <section className="py-20">
         <Container>
-          <div className="relative overflow-hidden rounded-3xl bg-ink px-8 py-16 text-center md:px-16">
-            <h2 className="text-3xl font-bold text-white md:text-4xl">
-              Need a government service today?
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-gray-300">
-              Visit us in Kakkanad or reach out on WhatsApp — we&apos;re open {siteConfig.hours}.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
-                href={`https://wa.me/91${siteConfig.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block rounded-lg bg-whatsapp px-8 py-3 font-semibold text-white transition-colors hover:bg-whatsapp-dark"
-              >
-                Chat on WhatsApp
-              </a>
-              <Link
-                href="/contact"
-                className="inline-block rounded-lg border border-white/30 bg-white/10 px-8 py-3 font-semibold text-white backdrop-blur transition-colors hover:bg-white/20"
-              >
-                Contact Us
-              </Link>
+          <div className="relative overflow-hidden rounded-3xl bg-ink px-8 py-16 text-center shadow-xl shadow-ink/20 dark:bg-black dark:shadow-[0_0_60px_-10px_rgba(63,182,218,0.25)] dark:ring-1 dark:ring-white/10 md:px-16">
+            <SparklesCore
+              background="transparent"
+              minSize={0.4}
+              maxSize={1}
+              particleDensity={70}
+              particleColor="#ffffff"
+              className="absolute inset-0 h-full w-full"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-ink [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black" />
+            <div className="relative z-10">
+              <h2 className="text-3xl font-bold text-white md:text-4xl">
+                Need a government service today?
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-lg text-gray-300">
+                Visit us in Kakkanad or reach out on WhatsApp — we&apos;re open {siteConfig.hours}.
+              </p>
+              <div className="mt-8 flex flex-wrap justify-center gap-4">
+                <a
+                  href={`https://wa.me/91${siteConfig.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block rounded-lg bg-whatsapp px-8 py-3 font-semibold text-white transition-colors hover:bg-whatsapp-dark"
+                >
+                  Chat on WhatsApp
+                </a>
+                <Link
+                  href="/contact"
+                  className="inline-block rounded-lg border border-white/30 bg-white/10 px-8 py-3 font-semibold text-white backdrop-blur transition-colors hover:bg-white/20"
+                >
+                  Contact Us
+                </Link>
+              </div>
             </div>
           </div>
         </Container>
