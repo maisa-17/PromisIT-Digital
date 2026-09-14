@@ -13,8 +13,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur dark:border-gray-800 dark:bg-gray-950/95">
-      <div className="primary-strip" aria-hidden="true" />
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur dark:bg-gray-950/95">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2">
           <Image
@@ -45,7 +44,7 @@ export function SiteHeader() {
             href={`https://wa.me/91${siteConfig.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-dark md:inline-flex"
+            className="hidden items-center gap-2 rounded-lg bg-whatsapp px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-whatsapp-dark md:inline-flex"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
               <path d="M12 2.5a9.4 9.4 0 0 0-8.1 14.1L2.5 21.5l5.1-1.3A9.4 9.4 0 1 0 12 2.5Zm0 1.8a7.6 7.6 0 0 1 6.6 11.4l-.2.4.6 2.3-2.3-.6-.4.2A7.6 7.6 0 1 1 12 4.3Zm-3.4 3.9c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.4 3.8 2.1.9 2.6.7 3 .7.7-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.1-1.3-.1-.1-.3-.2-.6-.4-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.6-.9-2.1-.2-.5-.4-.4-.6-.4h-.5Z" />
@@ -82,7 +81,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <nav className="border-t border-gray-200 px-6 py-4 dark:border-gray-800 md:hidden">
+        <nav className="px-6 py-4 md:hidden">
           <ul className="flex flex-col gap-1">
             {navLinks.map((link) => {
               const active =
@@ -109,7 +108,7 @@ export function SiteHeader() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="block rounded-lg bg-accent px-3 py-2.5 text-center text-base font-semibold text-white"
+                className="block rounded-lg bg-whatsapp px-3 py-2.5 text-center text-base font-semibold text-white"
               >
                 WhatsApp Us
               </a>

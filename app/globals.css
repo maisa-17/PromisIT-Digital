@@ -20,6 +20,10 @@
   --violet-light: #efebfa;
   --ink: #1e2330;
   --ink-light: #2a3142;
+
+  /* Darker coral/pink used specifically for WhatsApp CTAs */
+  --whatsapp: #c65560;
+  --whatsapp-dark: #a8414b;
 }
 
 .dark {
@@ -50,6 +54,8 @@
   --color-violet-light: var(--violet-light);
   --color-ink: var(--ink);
   --color-ink-light: var(--ink-light);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-dark: var(--whatsapp-dark);
 }
 
 html {

@@ -28,7 +28,7 @@ function HeroHeader() {
           href={`https://wa.me/91${siteConfig.whatsapp}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-lg bg-accent px-6 py-3 font-semibold text-white shadow-lg shadow-accent/30 transition-colors hover:bg-accent-dark"
+          className="rounded-lg bg-whatsapp px-6 py-3 font-semibold text-white shadow-lg shadow-whatsapp/30 transition-colors hover:bg-whatsapp-dark"
         >
           Chat on WhatsApp
         </a>
@@ -83,6 +83,27 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* About us */}
+      <section className="py-20">
+        <Container>
+          <Link
+            href="/about"
+            className="group block rounded-2xl border border-gray-200 p-8 transition-colors hover:border-primary dark:border-gray-800 md:p-10"
+          >
+            <SectionHeading eyebrow="About Us" title="Who we are" />
+            <p className="mt-4 max-w-2xl text-base leading-7 text-gray-600 dark:text-gray-400">
+              {siteConfig.description}
+            </p>
+            <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+              Learn more about us
+              <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </span>
+          </Link>
+        </Container>
+      </section>
+
       {/* Testimonials */}
       <section id="testimonials" className="py-20">
         <Container>
@@ -104,7 +125,6 @@ export default function Home() {
       <section className="py-20">
         <Container>
           <div className="relative overflow-hidden rounded-3xl bg-ink px-8 py-16 text-center md:px-16">
-            <div className="absolute inset-x-0 top-0 primary-strip" aria-hidden="true" />
             <h2 className="text-3xl font-bold text-white md:text-4xl">
               Need a government service today?
             </h2>
@@ -116,7 +136,7 @@ export default function Home() {
                 href={`https://wa.me/91${siteConfig.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block rounded-lg bg-accent px-8 py-3 font-semibold text-white transition-colors hover:bg-accent-dark"
+                className="inline-block rounded-lg bg-whatsapp px-8 py-3 font-semibold text-white transition-colors hover:bg-whatsapp-dark"
               >
                 Chat on WhatsApp
               </a>

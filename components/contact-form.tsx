@@ -111,7 +111,7 @@ export function ContactForm() {
           href={`https://wa.me/91${siteConfig.whatsapp}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-lg bg-accent px-6 py-3 font-semibold text-white transition-colors hover:bg-accent-dark"
+          className="rounded-lg bg-whatsapp px-6 py-3 font-semibold text-white transition-colors hover:bg-whatsapp-dark"
         >
           Or WhatsApp Us Instead
         </a>
