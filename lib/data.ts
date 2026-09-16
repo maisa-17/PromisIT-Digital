@@ -36,7 +36,7 @@ export const services: Service[] = [
       "RC services — ownership transfer, duplicate RC, hypothecation",
       "RC address change, NOC, fitness, renewal & road tax payment",
     ],
-    photo: "/services/rto.png",
+    photo: "/services/rto-v2.png",
     icon: "car",
   },
   {
@@ -51,7 +51,7 @@ export const services: Service[] = [
       "Encumbrance Certificate & Certified Copy",
       "Jeevan Pramaan — digital life certificate for pensioners",
     ],
-    photo: "/services/certificate.jpg",
+    photo: "/services/certificate.png",
     icon: "certificate",
   },
   {
@@ -96,7 +96,7 @@ export const services: Service[] = [
       "Shifting of constituency",
       "Application status check",
     ],
-    photo: "/services/voter-id.jpg",
+    photo: "/services/voter-id.png",
     icon: "vote",
   },
   {
@@ -126,7 +126,7 @@ export const services: Service[] = [
       "Reduction of member",
       "Transfer of ration card",
     ],
-    photo: "/services/ration-card.jpg",
+    photo: "/services/ration-card.png",
     icon: "ration",
   },
   {
@@ -172,7 +172,7 @@ export const services: Service[] = [
       "PSC, SSC & banking exam applications",
       "Access to learning apps & online courses",
     ],
-    photo: "/services/student-support.png",
+    photo: "/services/student-support-v2.png",
     icon: "graduation",
   },
   {
@@ -260,40 +260,49 @@ export type GalleryItem = {
   title: string;
   category: string;
   description: string;
+  // Optional real photo — falls back to a gradient + initials placeholder
+  // when not set.
+  photo?: string;
 };
 
 // Placeholder gallery entries — swap these for real photos of your centre,
 // service counter and camps once you have them.
 export const galleryItems: GalleryItem[] = [
   {
+    title: "Our Storefront",
+    category: "Our Centre",
+    description: "The Promis IT Digital Solutions centre in Kakkanad, easy to spot from the road.",
+    photo: "/gallery/storefront.png",
+  },
+  {
     title: "Our Service Counter",
     category: "Our Centre",
     description: "The front desk where customers are welcomed and guided.",
+    photo: "/gallery/service-counter.png",
   },
   {
     title: "Document Assistance",
     category: "Service Counter",
     description: "Helping a customer complete a certificate application.",
+    photo: "/gallery/document-assistance.png",
   },
   {
     title: "Printing & Xerox Corner",
     category: "Our Centre",
     description: "Our printing, scanning and photocopy setup.",
+    photo: "/gallery/printing-corner.png",
   },
   {
-    title: "Insurance Enrollment Camp",
-    category: "Community Camps",
-    description: "An outreach camp helping residents enroll in health and vehicle insurance.",
-  },
-  {
-    title: "Certificate Collection",
-    category: "Service Counter",
-    description: "A customer collecting a completed government certificate.",
-  },
-  {
-    title: "Waiting & Reception Area",
+    title: "Our Photocopier",
     category: "Our Centre",
-    description: "A clean, comfortable space for customers waiting to be served.",
+    description: "Scan, copy and print — fast, reliable, and always on hand.",
+    photo: "/gallery/photocopier.png",
+  },
+  {
+    title: "Our Team",
+    category: "Our Team",
+    description: "The team behind every service, celebrating Onam together at our centre.",
+    photo: "/gallery/our-team.png",
   },
 ];
 

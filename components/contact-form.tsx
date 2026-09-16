@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { WhatsAppLink } from "@/components/whatsapp-link";
 import { services } from "@/lib/data";
 import { siteConfig } from "@/lib/site";
 
@@ -107,14 +108,9 @@ export function ContactForm() {
         >
           Send Message
         </button>
-        <a
-          href={`https://wa.me/91${siteConfig.whatsapp}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-lg bg-whatsapp px-6 py-3 font-semibold text-white transition-colors hover:bg-whatsapp-dark"
-        >
+        <WhatsAppLink className="rounded-lg bg-whatsapp px-6 py-3 font-semibold text-white transition-colors hover:bg-whatsapp-dark">
           Or WhatsApp Us Instead
-        </a>
+        </WhatsAppLink>
       </div>
 
       {submitted && (

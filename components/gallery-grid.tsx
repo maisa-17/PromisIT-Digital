@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useId, useMemo, useRef, useState } from "react";
+import Image from "next/image";
+import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import type { GalleryItem } from "@/lib/data";
 
@@ -29,17 +30,9 @@ function initials(title: string) {
  * into a centered overlay, while the rest of the page dims behind it.
  */
 export function GalleryGrid({ items }: { items: GalleryItem[] }) {
-  const categories = useMemo(
-    () => ["All", ...Array.from(new Set(items.map((item) => item.category)))],
-    [items]
-  );
-  const [activeCategory, setActiveCategory] = useState("All");
   const [active, setActive] = useState<GalleryItem | null>(null);
   const layoutId = useId();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-
-  const filtered =
-    activeCategory === "All" ? items : items.filter((item) => item.category === activeCategory);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -58,23 +51,6 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2">
-        {categories.map((category) => (
-          <button
-            key={category}
-            type="button"
-            onClick={() => setActiveCategory(category)}
-            className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-              activeCategory === category
-                ? "border-primary bg-primary text-white"
-                : "border-gray-300 text-gray-700 hover:border-primary/40 dark:border-gray-700 dark:text-gray-300"
-            }`}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-
       <AnimatePresence>
         {active && (
           <motion.div
@@ -95,7 +71,7 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
               layoutId={`${layoutId}-${active.title}`}
               role="dialog"
               aria-modal="true"
-              aria-labelledby={`${layoutId}-${active.title}-title`}
+              aria-label={active.title}
               className="relative flex w-full max-w-lg max-h-[90vh] flex-col overflow-hidden rounded-2xl bg-white dark:bg-gray-900"
             >
               <button
@@ -118,26 +94,29 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
               <div className="overflow-y-auto">
                 <motion.div
                   layoutId={`${layoutId}-${active.title}-image`}
-                  className={`flex aspect-[4/3] items-center justify-center bg-gradient-to-br ${
+                  className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br ${
                     palettes[items.indexOf(active) % palettes.length]
                   }`}
                 >
-                  <span className="text-6xl font-bold text-gray-900/10">
-                    {initials(active.title)}
-                  </span>
+                  {active.photo ? (
+                    <Image
+                      src={active.photo}
+                      alt={active.title}
+                      fill
+                      sizes="(min-width: 640px) 32rem, 100vw"
+                      className="object-cover"
+                    />
+                  ) : (
+                    <span className="text-6xl font-bold text-gray-900/10">
+                      {initials(active.title)}
+                    </span>
+                  )}
                 </motion.div>
 
                 <div className="p-6">
                   <p className="text-xs font-semibold uppercase tracking-wider text-primary">
                     {active.category}
                   </p>
-                  <motion.h2
-                    layoutId={`${layoutId}-${active.title}-title`}
-                    id={`${layoutId}-${active.title}-title`}
-                    className="mt-2 text-xl font-bold text-gray-900 dark:text-white"
-                  >
-                    {active.title}
-                  </motion.h2>
                   <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-400">
                     {active.description}
                   </p>
@@ -148,8 +127,8 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
         )}
       </AnimatePresence>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {filtered.map((item, index) => (
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((item, index) => (
           <motion.button
             key={item.title}
             layoutId={`${layoutId}-${item.title}`}
@@ -158,22 +137,26 @@ export function GalleryGrid({ items }: { items: GalleryItem[] }) {
           >
             <motion.div
               layoutId={`${layoutId}-${item.title}-image`}
-              className={`flex aspect-[4/3] items-center justify-center bg-gradient-to-br ${
+              className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br ${
                 palettes[index % palettes.length]
               }`}
             >
-              <span className="text-4xl font-bold text-gray-900/10">{initials(item.title)}</span>
+              {item.photo ? (
+                <Image
+                  src={item.photo}
+                  alt={item.title}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              ) : (
+                <span className="text-4xl font-bold text-gray-900/10">{initials(item.title)}</span>
+              )}
             </motion.div>
             <div className="p-6">
               <p className="text-xs font-semibold uppercase tracking-wider text-primary">
                 {item.category}
               </p>
-              <motion.h2
-                layoutId={`${layoutId}-${item.title}-title`}
-                className="mt-2 text-lg font-bold text-gray-900 dark:text-white"
-              >
-                {item.title}
-              </motion.h2>
               <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{item.description}</p>
             </div>
           </motion.button>

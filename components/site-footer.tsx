@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/container";
+import { WhatsAppLink } from "@/components/whatsapp-link";
 import { navLinks, siteConfig } from "@/lib/site";
 
 export function SiteFooter() {
@@ -31,14 +32,9 @@ export function SiteFooter() {
               </a>
             </li>
             <li>
-              <a
-                href={`https://wa.me/91${siteConfig.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary"
-              >
+              <WhatsAppLink className="hover:text-primary">
                 WhatsApp: {siteConfig.whatsappDisplay}
-              </a>
+              </WhatsAppLink>
             </li>
             <li>
               <a href={`mailto:${siteConfig.email}`} className="hover:text-primary">

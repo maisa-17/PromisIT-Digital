@@ -14,8 +14,16 @@ export default function GalleryPage() {
   return (
     <>
       {/* Intro */}
-      <section className="bg-gray-50 py-20 dark:bg-gray-950 md:py-28">
-        <Container>
+      <section className="relative overflow-hidden bg-gray-50 py-20 dark:bg-gray-950 md:py-28">
+        <div
+          className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-accent/20 blur-3xl dark:bg-accent/25"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-violet/20 blur-3xl dark:bg-violet/25"
+          aria-hidden="true"
+        />
+        <Container className="relative">
           <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent-dark">
             Gallery
           </p>

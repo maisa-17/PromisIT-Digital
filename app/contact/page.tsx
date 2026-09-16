@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/container";
 import { ContactForm } from "@/components/contact-form";
+import { QuickContactGrid } from "@/components/quick-contact-grid";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -8,34 +9,28 @@ export const metadata: Metadata = {
   description: `Get in touch with ${siteConfig.name} in Kakkanad, Kerala — by phone, WhatsApp, email or in person.`,
 };
 
-const infoCards = [
-  {
-    label: "Phone",
-    value: siteConfig.phoneDisplay,
-    href: `tel:+91${siteConfig.phone}`,
-  },
-  {
-    label: "WhatsApp",
-    value: siteConfig.whatsappDisplay,
-    href: `https://wa.me/91${siteConfig.whatsapp}`,
-  },
-  {
-    label: "Email",
-    value: siteConfig.email,
-    href: `mailto:${siteConfig.email}`,
-  },
-  {
-    label: "Operating Hours",
-    value: siteConfig.hours,
-  },
-  {
-    label: "Address",
-    value: siteConfig.address,
-    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      siteConfig.address
-    )}`,
-  },
-];
+type IconProps = { className?: string };
+
+function MapPinIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M12 21.5s7-6.1 7-11.8a7 7 0 1 0-14 0c0 5.7 7 11.8 7 11.8Z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+      <circle cx="12" cy="9.7" r="2.5" stroke="currentColor" strokeWidth="1.75" />
+    </svg>
+  );
+}
+
+const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(
+  siteConfig.address
+)}&output=embed`;
+const mapDirectionsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  siteConfig.address
+)}`;
 
 export default function ContactPage() {
   return (
@@ -57,47 +52,57 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      {/* Form + info */}
-      <section className="py-20">
-        <Container className="grid gap-12 md:grid-cols-5">
-          <div className="md:col-span-3">
+      {/* Quick contact */}
+      <section className="py-14">
+        <Container>
+          <QuickContactGrid />
+        </Container>
+      </section>
+
+      {/* Form + visit us */}
+      <section className="pb-20">
+        <Container className="grid gap-8 lg:grid-cols-5">
+          <div className="lg:col-span-3">
             <div className="rounded-2xl border border-gray-200 p-8 dark:border-gray-800">
-              <ContactForm />
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">Send us a message</h2>
+              <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                We usually reply within a few hours during working hours.
+              </p>
+              <div className="mt-6">
+                <ContactForm />
+              </div>
             </div>
           </div>
 
-          <div className="md:col-span-2">
-            <div className="space-y-4">
-              {infoCards.map((card) => (
-                <div
-                  key={card.label}
-                  className={`rounded-2xl border p-6 ${
-                    card.label === "WhatsApp"
-                      ? "border-accent/30 bg-accent/5"
-                      : "border-gray-200 dark:border-gray-800"
-                  }`}
+          <div className="lg:col-span-2">
+            <div className="overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800">
+              <div className="aspect-[4/3] w-full bg-gray-100 dark:bg-gray-900">
+                <iframe
+                  title="Map to our centre in Kakkanad"
+                  src={mapEmbedSrc}
+                  className="h-full w-full border-0 grayscale-[15%] dark:invert dark:hue-rotate-180"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <div className="p-6">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary-light text-primary">
+                  <MapPinIcon className="h-5 w-5" />
+                </span>
+                <h3 className="mt-4 text-lg font-bold text-gray-900 dark:text-white">Visit our centre</h3>
+                <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-400">
+                  {siteConfig.address}
+                </p>
+                <a
+                  href={mapDirectionsHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary"
                 >
-                  <p
-                    className={`text-xs font-semibold uppercase tracking-wider ${
-                      card.label === "WhatsApp" ? "text-accent-dark" : "text-primary"
-                    }`}
-                  >
-                    {card.label}
-                  </p>
-                  {card.href ? (
-                    <a
-                      href={card.href}
-                      target={card.href.startsWith("http") ? "_blank" : undefined}
-                      rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="mt-2 block text-lg font-medium text-gray-900 hover:text-primary dark:text-white"
-                    >
-                      {card.value}
-                    </a>
-                  ) : (
-                    <p className="mt-2 text-lg font-medium text-gray-900 dark:text-white">{card.value}</p>
-                  )}
-                </div>
-              ))}
+                  Get directions
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
             </div>
           </div>
         </Container>

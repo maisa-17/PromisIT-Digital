@@ -1,9 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import CardSwap, { Card } from "@/components/card-swap";
 import { Container } from "@/components/container";
 import { HeroParallax } from "@/components/hero-parallax";
 import { SectionHeading } from "@/components/section-heading";
-import { SparklesCore } from "@/components/sparkles";
+import { SparklesCTA } from "@/components/sparkles-cta";
+import { WhatsAppLink } from "@/components/whatsapp-link";
 import { services, testimonials } from "@/lib/data";
 import { siteConfig } from "@/lib/site";
 
@@ -30,14 +32,9 @@ function HeroHeader() {
         {siteConfig.description}
       </p>
       <div className="mt-10 flex flex-wrap gap-4">
-        <a
-          href={`https://wa.me/91${siteConfig.whatsapp}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-lg bg-whatsapp px-6 py-3 font-semibold text-white shadow-lg shadow-whatsapp/30 transition-colors hover:bg-whatsapp-dark"
-        >
+        <WhatsAppLink className="rounded-lg bg-whatsapp px-6 py-3 font-semibold text-white shadow-lg shadow-whatsapp/30 transition-colors hover:bg-whatsapp-dark">
           Chat on WhatsApp
-        </a>
+        </WhatsAppLink>
         <Link
           href="/services"
           className="rounded-lg border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur transition-colors hover:bg-white/20"
@@ -54,6 +51,29 @@ export default function Home() {
     <>
       {/* Hero */}
       <HeroParallax services={services} header={<HeroHeader />} />
+
+      {/* Franchise strip */}
+      <section className="border-y border-gray-200 bg-white py-8 dark:border-gray-800 dark:bg-gray-950">
+        <Container className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
+          <Image
+            src="/csc-digital-seva-logo.jpg"
+            alt="CSC Digital Seva"
+            width={147}
+            height={80}
+            className="h-16 w-auto flex-none rounded-lg object-contain"
+          />
+          <p className="text-base leading-7 text-gray-600 dark:text-gray-400">
+            <span className="font-semibold text-gray-900 dark:text-white">
+              {siteConfig.name}
+            </span>{" "}
+            is an authorized franchise of{" "}
+            <span className="font-semibold text-gray-900 dark:text-white">
+              CSC Digital Seva
+            </span>
+            , operating under the Government of India&apos;s Common Service Centre scheme.
+          </p>
+        </Container>
+      </section>
 
       {/* Why choose us */}
       <section className="bg-gray-50 py-20 dark:bg-gray-950">
@@ -159,45 +179,12 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-20">
-        <Container>
-          <div className="relative overflow-hidden rounded-3xl bg-ink px-8 py-16 text-center shadow-xl shadow-ink/20 dark:bg-black dark:shadow-[0_0_60px_-10px_rgba(63,182,218,0.25)] dark:ring-1 dark:ring-white/10 md:px-16">
-            <SparklesCore
-              background="transparent"
-              minSize={0.4}
-              maxSize={1}
-              particleDensity={70}
-              particleColor="#ffffff"
-              className="absolute inset-0 h-full w-full"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-ink [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black" />
-            <div className="relative z-10">
-              <h2 className="text-3xl font-bold text-white md:text-4xl">
-                Need a government service today?
-              </h2>
-              <p className="mx-auto mt-4 max-w-xl text-lg text-gray-300">
-                Visit us in Kakkanad or reach out on WhatsApp — we&apos;re open {siteConfig.hours}.
-              </p>
-              <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <a
-                  href={`https://wa.me/91${siteConfig.whatsapp}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block rounded-lg bg-whatsapp px-8 py-3 font-semibold text-white transition-colors hover:bg-whatsapp-dark"
-                >
-                  Chat on WhatsApp
-                </a>
-                <Link
-                  href="/contact"
-                  className="inline-block rounded-lg border border-white/30 bg-white/10 px-8 py-3 font-semibold text-white backdrop-blur transition-colors hover:bg-white/20"
-                >
-                  Contact Us
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <SparklesCTA
+        title="Need a government service today?"
+        description={`Visit us in Kakkanad or reach out on WhatsApp — we're open ${siteConfig.hours}.`}
+        secondaryHref="/contact"
+        secondaryLabel="Contact Us"
+      />
     </>
   );
 }

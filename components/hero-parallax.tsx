@@ -125,6 +125,7 @@ function ServiceTile({
             alt=""
             fill
             sizes="(min-width: 768px) 26rem, 20rem"
+            quality={90}
             className="object-cover"
           />
         ) : (

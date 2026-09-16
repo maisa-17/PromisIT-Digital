@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
+import SplashCursor from "@/components/splash-cursor";
+import { SparklesCTA } from "@/components/sparkles-cta";
 import { values } from "@/lib/data";
 import { siteConfig } from "@/lib/site";
 
@@ -10,12 +11,84 @@ export const metadata: Metadata = {
   description: `Learn about ${siteConfig.name} — an authorized Common Service Centre in Kakkanad, our mission, vision and values.`,
 };
 
+type IconProps = { className?: string };
+
+function ShieldCheckIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M12 3.5 19 6v6c0 4.5-3 7.5-7 8.5-4-1-7-4-7-8.5V6l7-2.5Z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+      <path d="m9 12 2 2 4-4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function UsersIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <circle cx="9" cy="8.5" r="3" stroke="currentColor" strokeWidth="1.75" />
+      <path d="M3.5 19c.7-3 2.8-4.5 5.5-4.5s4.8 1.5 5.5 4.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+      <path
+        d="M15.5 6c1.4.3 2.5 1.4 2.5 2.9 0 1.4-1 2.5-2.3 2.9M17.5 14.7c2 .5 3.4 1.9 4 4.3"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function CheckCircleIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.75" />
+      <path d="m8.5 12.3 2.3 2.3 4.7-5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function HeartIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 6.5a4.3 4.3 0 0 1 7.5 3.3C19.5 15.4 12 20 12 20Z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+const valueIcons = [ShieldCheckIcon, UsersIcon, CheckCircleIcon, HeartIcon];
+
+const stats = [
+  { stat: "13+", label: "Services offered", accent: "bg-primary" },
+  { stat: "6", label: "Days open a week", accent: "bg-accent" },
+  { stat: "9-6", label: "Daily service hours", accent: "bg-violet" },
+  { stat: "100%", label: "Authorized CSC centre", accent: "bg-primary" },
+];
+
 export default function AboutPage() {
   return (
     <>
+      <SplashCursor />
+
       {/* Intro */}
-      <section className="bg-gray-50 py-20 dark:bg-gray-950 md:py-28">
-        <Container>
+      <section className="relative overflow-hidden bg-gray-50 py-20 dark:bg-gray-950 md:py-28">
+        <div
+          className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-primary/20 blur-3xl dark:bg-primary/25"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-accent/20 blur-3xl dark:bg-accent/25"
+          aria-hidden="true"
+        />
+        <Container className="relative">
           <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent-dark">
             About Us
           </p>
@@ -31,12 +104,31 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      {/* Stats */}
+      <section className="py-14">
+        <Container>
+          <dl className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+            {stats.map((item) => (
+              <div
+                key={item.label}
+                className="overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900"
+              >
+                <span className={`block h-1 w-10 rounded-full ${item.accent}`} aria-hidden="true" />
+                <dt className="mt-4 text-3xl font-bold text-gray-900 dark:text-white">{item.stat}</dt>
+                <dd className="mt-1 text-sm text-gray-600 dark:text-gray-400">{item.label}</dd>
+              </div>
+            ))}
+          </dl>
+        </Container>
+      </section>
+
       {/* Mission & Vision */}
       <section className="py-20">
         <Container>
           <div className="grid gap-8 md:grid-cols-2">
-            <div className="rounded-2xl border border-gray-200 p-8 dark:border-gray-800">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-light text-primary">
+            <div className="overflow-hidden rounded-2xl border border-gray-200 p-8 transition-shadow hover:shadow-lg dark:border-gray-800">
+              <span className="block h-1 w-10 rounded-full bg-primary" aria-hidden="true" />
+              <span className="mt-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-light text-primary">
                 <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
                   <path
                     d="M12 3.5 19 6v6c0 4.5-3 7.5-7 8.5-4-1-7-4-7-8.5V6l7-2.5Z"
@@ -55,8 +147,9 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 p-8 dark:border-gray-800">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-violet-light text-violet">
+            <div className="overflow-hidden rounded-2xl border border-gray-200 p-8 transition-shadow hover:shadow-lg dark:border-gray-800">
+              <span className="block h-1 w-10 rounded-full bg-violet" aria-hidden="true" />
+              <span className="mt-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-violet-light text-violet">
                 <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
                   <circle cx="12" cy="12" r="3.25" stroke="currentColor" strokeWidth="1.75" />
                   <path
@@ -88,18 +181,28 @@ export default function AboutPage() {
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {values.map((value, index) => {
-              const accents = ["bg-primary", "bg-accent", "bg-violet", "bg-primary"];
+              const accents = [
+                { bg: "bg-primary-light", text: "text-primary" },
+                { bg: "bg-accent-light", text: "text-accent-dark" },
+                { bg: "bg-violet-light", text: "text-violet" },
+                { bg: "bg-primary-light", text: "text-primary" },
+              ];
+              const accent = accents[index % accents.length];
+              const Icon = valueIcons[index % valueIcons.length];
               return (
                 <div
                   key={value.title}
-                  className="overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900"
+                  className="flex gap-4 overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 transition-shadow hover:shadow-lg dark:border-gray-800 dark:bg-gray-900"
                 >
                   <span
-                    className={`block h-1 w-10 rounded-full ${accents[index % accents.length]}`}
-                    aria-hidden="true"
-                  />
-                  <h3 className="mt-4 text-lg font-bold text-gray-900 dark:text-white">{value.title}</h3>
-                  <p className="mt-2 text-gray-600 dark:text-gray-400">{value.description}</p>
+                    className={`inline-flex h-11 w-11 flex-none items-center justify-center rounded-xl ${accent.bg} ${accent.text}`}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">{value.title}</h3>
+                    <p className="mt-2 text-gray-600 dark:text-gray-400">{value.description}</p>
+                  </div>
                 </div>
               );
             })}
@@ -108,25 +211,12 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20">
-        <Container className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
-            Need a service today?
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-gray-600 dark:text-gray-400">
-            Visit our centre in Kakkanad or reach out — we&apos;re happy to
-            help.
-          </p>
-          <div className="mt-8">
-            <Link
-              href="/contact"
-              className="inline-block rounded-lg bg-primary px-8 py-3 font-semibold text-white transition-colors hover:bg-primary-dark"
-            >
-              Get in Touch
-            </Link>
-          </div>
-        </Container>
-      </section>
+      <SparklesCTA
+        title="Need a service today?"
+        description="Visit our centre in Kakkanad or reach out — we're happy to help."
+        secondaryHref="/contact"
+        secondaryLabel="Get in Touch"
+      />
     </>
   );
 }

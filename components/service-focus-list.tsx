@@ -59,6 +59,7 @@ export function ServiceFocusList({ services }: { services: Service[] }) {
                   alt=""
                   fill
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  quality={90}
                   className="object-cover"
                   priority={index < 3}
                 />
