@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import {
   motion,
@@ -15,8 +16,8 @@ import type { Service } from "@/lib/data";
 /**
  * Aceternity UI's "Hero Parallax" — a 3D scroll-driven hero where rows of
  * cards slide in opposite directions and the whole grid tilts back into
- * place as you scroll. Adapted here to showcase our services as icon
- * tiles (no stock photos) instead of product screenshots.
+ * place as you scroll. Adapted here to showcase our services as photo
+ * tiles, falling back to a gradient + icon when a service has no photo.
  */
 
 const cardAccents = [
@@ -114,9 +115,21 @@ function ServiceTile({
     >
       <Link
         href={`/services#${service.slug}`}
-        className={`relative flex h-full w-full items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br shadow-xl transition-shadow group-hover:shadow-2xl ${accent}`}
+        className={`relative flex h-full w-full items-center justify-center overflow-hidden rounded-2xl shadow-xl transition-shadow group-hover:shadow-2xl ${
+          service.photo ? "bg-ink" : `bg-gradient-to-br ${accent}`
+        }`}
       >
-        <ServiceIcon icon={service.icon} className="h-24 w-24 text-white/25 md:h-32 md:w-32" />
+        {service.photo ? (
+          <Image
+            src={service.photo}
+            alt=""
+            fill
+            sizes="(min-width: 768px) 26rem, 20rem"
+            className="object-cover"
+          />
+        ) : (
+          <ServiceIcon icon={service.icon} className="h-24 w-24 text-white/25 md:h-32 md:w-32" />
+        )}
         <div className="absolute inset-0 bg-black opacity-0 transition-opacity group-hover:opacity-40" />
         <h3 className="absolute bottom-5 left-5 right-5 text-lg font-bold text-white opacity-0 transition-opacity group-hover:opacity-100">
           {service.title}
