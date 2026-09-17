@@ -36,7 +36,7 @@ export const services: Service[] = [
       "RC services — ownership transfer, duplicate RC, hypothecation",
       "RC address change, NOC, fitness, renewal & road tax payment",
     ],
-    photo: "/services/rto-v2.png",
+    photo: "/services/rto-v2.webp",
     icon: "car",
   },
   {
@@ -51,7 +51,7 @@ export const services: Service[] = [
       "Encumbrance Certificate & Certified Copy",
       "Jeevan Pramaan — digital life certificate for pensioners",
     ],
-    photo: "/services/certificate.png",
+    photo: "/services/certificate.webp",
     icon: "certificate",
   },
   {
@@ -66,7 +66,7 @@ export const services: Service[] = [
       "Duplicate / reprint of PAN card",
       "Guidance on required documents",
     ],
-    photo: "/services/pan-card.jpg",
+    photo: "/services/pan-card.webp",
     icon: "id-card",
   },
   {
@@ -81,7 +81,7 @@ export const services: Service[] = [
       "Renewal and reissue applications",
       "Correction of passport details",
     ],
-    photo: "/services/passport.jpg",
+    photo: "/services/passport.webp",
     icon: "passport",
   },
   {
@@ -96,7 +96,7 @@ export const services: Service[] = [
       "Shifting of constituency",
       "Application status check",
     ],
-    photo: "/services/voter-id.png",
+    photo: "/services/voter-id.webp",
     icon: "vote",
   },
   {
@@ -111,7 +111,7 @@ export const services: Service[] = [
       "Help understanding policy documents",
       "Assistance with claims",
     ],
-    photo: "/services/insurance.jpg",
+    photo: "/services/insurance.webp",
     icon: "shield",
   },
   {
@@ -126,7 +126,7 @@ export const services: Service[] = [
       "Reduction of member",
       "Transfer of ration card",
     ],
-    photo: "/services/ration-card.png",
+    photo: "/services/ration-card.webp",
     icon: "ration",
   },
   {
@@ -142,7 +142,7 @@ export const services: Service[] = [
       "PNG gas & cable TV bill payments",
       "Mobile, FASTag & DTH recharge",
     ],
-    photo: "/services/bill-payments.png",
+    photo: "/services/bill-payments.webp",
     icon: "receipt",
   },
   {
@@ -156,7 +156,7 @@ export const services: Service[] = [
       "Tharam Maattam (land conversion) — Form 5",
       "Tharam Maattam (land conversion) — Form 6",
     ],
-    photo: "/services/land-municipality.png",
+    photo: "/services/land-municipality.webp",
     icon: "building",
   },
   {
@@ -172,7 +172,7 @@ export const services: Service[] = [
       "PSC, SSC & banking exam applications",
       "Access to learning apps & online courses",
     ],
-    photo: "/services/student-support-v2.png",
+    photo: "/services/student-support-v2.webp",
     icon: "graduation",
   },
   {
@@ -187,7 +187,7 @@ export const services: Service[] = [
       "PVC card printing — PAN, ration, driving licence, e-Shram & more",
       "Typing (English & Malayalam), resumes & deed preparation",
     ],
-    photo: "/services/printing-lamination.png",
+    photo: "/services/printing-lamination.webp",
     icon: "printer",
   },
   {
@@ -197,7 +197,7 @@ export const services: Service[] = [
     description:
       "Book your travel tickets with us — no need to juggle multiple apps and websites.",
     features: ["Air ticket booking", "Train ticket booking (IRCTC)", "Bus ticket booking"],
-    photo: "/services/travel-ticketing.png",
+    photo: "/services/travel-ticketing.webp",
     icon: "ticket",
   },
   {
@@ -211,7 +211,7 @@ export const services: Service[] = [
       "Guidance on common legal issues",
       "Support for eligible citizens under the Tele-Law scheme",
     ],
-    photo: "/services/tele-law.png",
+    photo: "/services/tele-law.webp",
     icon: "legal",
   },
 ];
@@ -272,37 +272,37 @@ export const galleryItems: GalleryItem[] = [
     title: "Our Storefront",
     category: "Our Centre",
     description: "The Promis IT Digital Solutions centre in Kakkanad, easy to spot from the road.",
-    photo: "/gallery/storefront.png",
+    photo: "/gallery/storefront.webp",
   },
   {
     title: "Our Service Counter",
     category: "Our Centre",
     description: "The front desk where customers are welcomed and guided.",
-    photo: "/gallery/service-counter.png",
+    photo: "/gallery/service-counter.webp",
   },
   {
     title: "Document Assistance",
     category: "Service Counter",
     description: "Helping a customer complete a certificate application.",
-    photo: "/gallery/document-assistance.png",
+    photo: "/gallery/document-assistance.webp",
   },
   {
     title: "Printing & Xerox Corner",
     category: "Our Centre",
     description: "Our printing, scanning and photocopy setup.",
-    photo: "/gallery/printing-corner.png",
+    photo: "/gallery/printing-corner.webp",
   },
   {
     title: "Our Photocopier",
     category: "Our Centre",
     description: "Scan, copy and print — fast, reliable, and always on hand.",
-    photo: "/gallery/photocopier.png",
+    photo: "/gallery/photocopier.webp",
   },
   {
     title: "Our Team",
     category: "Our Team",
     description: "The team behind every service, celebrating Onam together at our centre.",
-    photo: "/gallery/our-team.png",
+    photo: "/gallery/our-team.webp",
   },
 ];
 

@@ -35,7 +35,7 @@ export function ServiceFocusList({ services }: { services: Service[] }) {
           id={service.slug}
           onMouseEnter={() => setHoveredIndex(index)}
           onMouseLeave={() => setHoveredIndex(null)}
-          className="group relative scroll-mt-24 rounded-2xl p-1"
+          className="group relative h-full scroll-mt-24 rounded-2xl p-1"
         >
           <AnimatePresence>
             {hoveredIndex === index && (
@@ -51,7 +51,7 @@ export function ServiceFocusList({ services }: { services: Service[] }) {
             )}
           </AnimatePresence>
 
-          <div className="relative z-10 overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+          <div className="relative z-10 flex h-full min-h-[550px] flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
             {service.photo ? (
               <div className="relative aspect-video bg-gray-50 dark:bg-gray-950">
                 <Image

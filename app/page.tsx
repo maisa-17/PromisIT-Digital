@@ -1,18 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import CardSwap, { Card } from "@/components/card-swap";
 import { Container } from "@/components/container";
+import { CountUp } from "@/components/count-up";
 import { HeroParallax } from "@/components/hero-parallax";
+import MaskedHeading from "@/components/masked-heading";
 import { SectionHeading } from "@/components/section-heading";
 import { SparklesCTA } from "@/components/sparkles-cta";
-import { WhatsAppLink } from "@/components/whatsapp-link";
+import { TestimonialsCarousel } from "@/components/testimonials-carousel";
 import { services, testimonials } from "@/lib/data";
 import { siteConfig } from "@/lib/site";
-
-// The *-light background swaps automatically between its pale (light mode)
-// and desaturated dark (dark mode) value via the CSS variable in
-// app/globals.css — no dark: variant needed for that part.
-const testimonialAccent = { bg: "bg-primary-light", border: "border-primary/30", avatar: "bg-primary" };
 
 function HeroHeader() {
   return (
@@ -25,16 +21,23 @@ function HeroHeader() {
         </span>
         Authorized {siteConfig.csc}
       </span>
-      <h1 className="mt-6 max-w-3xl text-4xl font-bold tracking-tight text-white md:text-6xl">
-        {siteConfig.tagline}
-      </h1>
+      <MaskedHeading
+        tag="h1"
+        text={siteConfig.tagline}
+        src="/gallery/storefront.webp"
+        align="left"
+        weight={800}
+        reveal="rise"
+        trigger="view"
+        tintColor="#ffffff"
+        tintOpacity={0.85}
+        tintBlend="normal"
+        className="mt-6 max-w-3xl"
+      />
       <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
         {siteConfig.description}
       </p>
       <div className="mt-10 flex flex-wrap gap-4">
-        <WhatsAppLink className="rounded-lg bg-whatsapp px-6 py-3 font-semibold text-white shadow-lg shadow-whatsapp/30 transition-colors hover:bg-whatsapp-dark">
-          Chat on WhatsApp
-        </WhatsAppLink>
         <Link
           href="/services"
           className="rounded-lg border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur transition-colors hover:bg-white/20"
@@ -56,7 +59,7 @@ export default function Home() {
       <section className="border-y border-gray-200 bg-white py-8 dark:border-gray-800 dark:bg-gray-950">
         <Container className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
           <Image
-            src="/csc-digital-seva-logo.jpg"
+            src="/csc-digital-seva-logo.webp"
             alt="CSC Digital Seva"
             width={147}
             height={80}
@@ -101,7 +104,9 @@ export default function Home() {
                 className="overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900"
               >
                 <span className={`block h-1 w-10 rounded-full ${item.accent}`} aria-hidden="true" />
-                <dt className="mt-4 text-3xl font-bold text-gray-900 dark:text-white">{item.stat}</dt>
+                <dt className="mt-4 text-3xl font-bold text-gray-900 dark:text-white">
+                  <CountUp value={item.stat} />
+                </dt>
                 <dd className="mt-1 text-sm text-gray-600 dark:text-gray-400">{item.label}</dd>
               </div>
             ))}
@@ -114,18 +119,27 @@ export default function Home() {
         <Container>
           <Link
             href="/about"
-            className="group block rounded-2xl border border-gray-200 p-8 transition-colors hover:border-primary dark:border-gray-800 md:p-10"
+            className="group grid items-center gap-8 rounded-2xl border border-gray-200 p-8 transition-colors hover:border-primary dark:border-gray-800 md:grid-cols-2 md:p-10"
           >
-            <SectionHeading eyebrow="About Us" title="Who we are" />
-            <p className="mt-4 max-w-2xl text-base leading-7 text-gray-600 dark:text-gray-400">
-              {siteConfig.description}
-            </p>
-            <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary">
-              Learn more about us
-              <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
-                →
+            <div>
+              <SectionHeading eyebrow="About Us" title="Who we are" />
+              <p className="mt-4 max-w-2xl text-base leading-7 text-gray-600 dark:text-gray-400">
+                {siteConfig.description}
+              </p>
+              <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                Learn more about us
+                <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                  →
+                </span>
               </span>
-            </span>
+            </div>
+            <Image
+              src="/about-services-overview.webp"
+              alt="All our Digital Seva Kendra services — RTO, PAN card, passport, ration card, certificates, insurance, bill payments and more — under one roof"
+              width={935}
+              height={512}
+              className="h-auto w-full rounded-xl"
+            />
           </Link>
         </Container>
       </section>
@@ -133,48 +147,16 @@ export default function Home() {
       {/* Testimonials */}
       <section id="testimonials" className="bg-gray-50 py-20 dark:bg-gray-950">
         <Container>
-          <SectionHeading
+          <TestimonialsCarousel
             eyebrow="Testimonials"
             title="Trusted by the people of Kakkanad"
-            description="A few words from customers we've helped."
-            align="center"
+            testimonials={testimonials.map((testimonial) => ({
+              quote: testimonial.quote,
+              name: testimonial.name,
+              designation: testimonial.role,
+              initials: testimonial.initials,
+            }))}
           />
-          <div className="relative mt-20 h-[460px] sm:h-[420px]">
-            <CardSwap cardDistance={40} verticalDistance={20} delay={3500} pauseOnHover={false} width={400} height={280}>
-              {testimonials.map((testimonial) => (
-                <Card
-                  key={testimonial.name}
-                  className={`flex flex-col justify-between border p-8 shadow-xl ${testimonialAccent.bg} ${testimonialAccent.border}`}
-                >
-                  <div>
-                    <div className="mb-3 flex gap-0.5 text-accent" aria-hidden="true">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <svg key={i} viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
-                          <path d="M10 1.5 12.6 7l6 .9-4.3 4.2 1 6-5.3-2.8L4.7 18l1-6L1.4 7.9l6-.9L10 1.5Z" />
-                        </svg>
-                      ))}
-                    </div>
-                    <p className="text-base leading-7 text-gray-700 dark:text-gray-300">
-                      “{testimonial.quote}”
-                    </p>
-                  </div>
-                  <div className="mt-6 flex items-center gap-3">
-                    <span
-                      className={`flex h-10 w-10 flex-none items-center justify-center rounded-full text-sm font-semibold text-white ${testimonialAccent.avatar}`}
-                    >
-                      {testimonial.initials}
-                    </span>
-                    <span>
-                      <span className="block text-sm font-semibold text-gray-900 dark:text-white">
-                        {testimonial.name}
-                      </span>
-                      <span className="block text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</span>
-                    </span>
-                  </div>
-                </Card>
-              ))}
-            </CardSwap>
-          </div>
         </Container>
       </section>
 

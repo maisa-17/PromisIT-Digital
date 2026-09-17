@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { WhatsAppLink } from "@/components/whatsapp-link";
 import { services } from "@/lib/data";
 import { siteConfig } from "@/lib/site";
 
@@ -101,17 +100,12 @@ export function ContactForm() {
         />
       </div>
 
-      <div className="flex flex-wrap gap-3">
-        <button
-          type="submit"
-          className="rounded-lg bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-dark"
-        >
-          Send Message
-        </button>
-        <WhatsAppLink className="rounded-lg bg-whatsapp px-6 py-3 font-semibold text-white transition-colors hover:bg-whatsapp-dark">
-          Or WhatsApp Us Instead
-        </WhatsAppLink>
-      </div>
+      <button
+        type="submit"
+        className="rounded-lg border border-gray-300 bg-white px-6 py-3 font-semibold text-gray-900 transition-colors hover:border-primary hover:bg-primary-light hover:text-primary dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:hover:border-primary/40 dark:hover:bg-primary/10 dark:hover:text-primary"
+      >
+        Send Message
+      </button>
 
       {submitted && (
         <p className="text-sm text-gray-600 dark:text-gray-400" role="status">

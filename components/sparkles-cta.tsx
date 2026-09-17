@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/container";
 import { SparklesCore } from "@/components/sparkles";
-import { WhatsAppLink } from "@/components/whatsapp-link";
 
 export function SparklesCTA({
   title,
@@ -31,12 +30,9 @@ export function SparklesCTA({
             <h2 className="text-3xl font-bold text-white md:text-4xl">{title}</h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-gray-300">{description}</p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <WhatsAppLink className="inline-block rounded-lg bg-whatsapp px-8 py-3 font-semibold text-white transition-colors hover:bg-whatsapp-dark">
-                Chat on WhatsApp
-              </WhatsAppLink>
               <Link
                 href={secondaryHref}
-                className="inline-block rounded-lg border border-white/30 bg-white/10 px-8 py-3 font-semibold text-white backdrop-blur transition-colors hover:bg-white/20"
+                className="inline-block rounded-lg bg-white px-8 py-3 font-semibold text-ink transition-colors hover:bg-gray-100"
               >
                 {secondaryLabel}
               </Link>

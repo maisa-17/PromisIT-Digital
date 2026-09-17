@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/container";
+import { CountUp } from "@/components/count-up";
 import { SectionHeading } from "@/components/section-heading";
 import SplashCursor from "@/components/splash-cursor";
 import { SparklesCTA } from "@/components/sparkles-cta";
@@ -114,7 +115,9 @@ export default function AboutPage() {
                 className="overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900"
               >
                 <span className={`block h-1 w-10 rounded-full ${item.accent}`} aria-hidden="true" />
-                <dt className="mt-4 text-3xl font-bold text-gray-900 dark:text-white">{item.stat}</dt>
+                <dt className="mt-4 text-3xl font-bold text-gray-900 dark:text-white">
+                  <CountUp value={item.stat} />
+                </dt>
                 <dd className="mt-1 text-sm text-gray-600 dark:text-gray-400">{item.label}</dd>
               </div>
             ))}
