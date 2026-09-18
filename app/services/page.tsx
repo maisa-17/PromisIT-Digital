@@ -160,7 +160,7 @@ export default function ServicesPage() {
                       >
                         <Icon className="h-5 w-5" />
                       </span>
-                      <span className="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-600">
+                      <span className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                         Step {item.step}
                       </span>
                     </div>

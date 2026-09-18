@@ -62,8 +62,7 @@ export function ServiceFocusList({ services }: { services: Service[] }) {
                   src={service.photo}
                   alt=""
                   fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  quality={90}
+                  sizes="(min-width: 1024px) calc(33vw - 32px), (min-width: 640px) calc(50vw - 36px), calc(100vw - 48px)"
                   className="object-cover"
                   priority={index < 3}
                 />

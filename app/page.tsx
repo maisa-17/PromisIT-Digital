@@ -27,6 +27,7 @@ function HeroHeader() {
         tag="h1"
         text={siteConfig.tagline}
         src="/gallery/storefront.webp"
+        priority
         align="left"
         weight={800}
         reveal="rise"
@@ -117,6 +118,7 @@ export default function Home() {
               alt="All our Digital Seva Kendra services — RTO, PAN card, passport, ration card, certificates, insurance, bill payments and more — under one roof"
               width={935}
               height={512}
+              sizes="(min-width: 768px) 40vw, 100vw"
               className="h-auto w-full rounded-xl"
             />
           </Link>

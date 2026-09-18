@@ -11,9 +11,11 @@
   /* PromiseIt Digital Solutions brand palette — soft-pastel P&D */
   --primary: #3fb6da;
   --primary-dark: #1f8fb0;
+  --primary-deep: #136b82;
   --primary-light: #e8f7fb;
   --accent: #f28b93;
   --accent-dark: #de6b75;
+  --accent-deep: #b8404b;
   --accent-light: #fdecee;
   --violet: #8b7bc9;
   --violet-dark: #6c5aa8;
@@ -45,9 +47,11 @@
 
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
+  --color-primary-deep: var(--primary-deep);
   --color-primary-light: var(--primary-light);
   --color-accent: var(--accent);
   --color-accent-dark: var(--accent-dark);
+  --color-accent-deep: var(--accent-deep);
   --color-accent-light: var(--accent-light);
   --color-violet: var(--violet);
   --color-violet-dark: var(--violet-dark);

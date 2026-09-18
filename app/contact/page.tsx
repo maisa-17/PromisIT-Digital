@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/container";
 import { ContactForm } from "@/components/contact-form";
+import { MapEmbed } from "@/components/map-embed";
 import { QuickContactGrid } from "@/components/quick-contact-grid";
 import { siteConfig } from "@/lib/site";
 
@@ -85,13 +86,7 @@ export default function ContactPage() {
           <div className="lg:col-span-2">
             <div className="overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800">
               <div className="aspect-[4/3] w-full bg-gray-100 dark:bg-gray-900">
-                <iframe
-                  title="Map to our centre in Kakkanad"
-                  src={mapEmbedSrc}
-                  className="h-full w-full border-0 grayscale-[15%] dark:invert dark:hue-rotate-180"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                <MapEmbed src={mapEmbedSrc} title="Map to our centre in Kakkanad" />
               </div>
               <div className="p-6">
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary-light text-primary">

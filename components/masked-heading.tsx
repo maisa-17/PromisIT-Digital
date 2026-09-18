@@ -24,6 +24,7 @@ export interface MaskedHeadingProps {
   mediaType?: "image" | "video";
   src?: string;
   poster?: string;
+  priority?: boolean;
   fillScale?: number;
   parallax?: number;
   drift?: number;
@@ -62,6 +63,7 @@ const MaskedHeading = ({
   mediaType = "image",
   src = "",
   poster = "",
+  priority = false,
   fillScale = 1.25,
   parallax = 26,
   drift = 18,
@@ -358,7 +360,15 @@ const MaskedHeading = ({
             <video className="masked-heading__source" src={src} poster={poster} autoPlay muted loop playsInline />
           ) : (
             // eslint-disable-next-line @next/next/no-img-element
-            <img className="masked-heading__source" src={src} alt="" draggable={false} />
+            <img
+              className="masked-heading__source"
+              src={src}
+              alt=""
+              draggable={false}
+              fetchPriority={priority ? "high" : undefined}
+              loading={priority ? "eager" : undefined}
+              decoding={priority ? "sync" : "async"}
+            />
           )}
         </span>
         {tintColor ? (

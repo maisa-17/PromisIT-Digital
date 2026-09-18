@@ -54,7 +54,7 @@ export function SiteFooter() {
       </Container>
 
       <div>
-        <Container className="flex flex-col items-center justify-between gap-2 py-6 text-sm text-gray-500 md:flex-row">
+        <Container className="flex flex-col items-center justify-between gap-2 py-6 text-sm text-gray-400 md:flex-row">
           <p>
             © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>

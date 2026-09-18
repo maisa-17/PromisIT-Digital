@@ -1,7 +1,9 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
-import SplashCursor from "@/components/splash-cursor";
+
+const SplashCursor = dynamic(() => import("@/components/splash-cursor"), { ssr: false });
 
 /**
  * Renders the WebGL splash-cursor effect on every page except the home

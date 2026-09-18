@@ -57,7 +57,7 @@ export default function GalleryPage() {
           <div className="mt-8">
             <Link
               href="/contact"
-              className="inline-block rounded-lg bg-primary px-8 py-3 font-semibold text-white transition-colors hover:bg-primary-dark"
+              className="inline-block rounded-lg bg-primary-deep px-8 py-3 font-semibold text-white transition-colors hover:bg-primary-dark"
             >
               Get in Touch
             </Link>

@@ -66,6 +66,7 @@ export function HeroParallax({
       className="relative flex min-h-[220vh] flex-col self-auto overflow-hidden bg-ink py-16 antialiased [perspective:1000px] [transform-style:preserve-3d]"
     >
       {header}
+      <h2 className="sr-only">Our services</h2>
       <motion.div style={{ rotateX, rotateZ, translateY, opacity }}>
         <Row items={firstRow} translate={translateX} reverse />
         <Row items={secondRow} translate={translateXReverse} />

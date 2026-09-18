@@ -1,14 +1,24 @@
 "use client";
 
-import { useId } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { motion, useAnimation } from "motion/react";
-import Particles, { ParticlesProvider } from "@tsparticles/react";
+import dynamic from "next/dynamic";
 import type { Container, Engine } from "@tsparticles/engine";
-import { loadSlim } from "@tsparticles/slim";
+
+// The tsparticles engine is heavy and only needed for this below-the-fold
+// effect, so it's split into its own chunk instead of the main bundle.
+const Particles = dynamic(() => import("@tsparticles/react").then((m) => m.Particles), {
+  ssr: false,
+});
+const ParticlesProvider = dynamic(
+  () => import("@tsparticles/react").then((m) => m.ParticlesProvider),
+  { ssr: false }
+);
 
 // Stable reference: ParticlesProvider requires its `init` callback to stay
 // the same function across the app's lifetime.
 const initEngine = async (engine: Engine) => {
+  const { loadSlim } = await import("@tsparticles/slim");
   await loadSlim(engine);
 };
 
@@ -92,6 +102,29 @@ function SparklesParticles({
 }
 
 export function SparklesCore(props: SparklesProps) {
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  if (!inView) {
+    return <div ref={rootRef} className={props.className} />;
+  }
+
   return (
     <ParticlesProvider init={initEngine}>
       <SparklesParticles {...props} />
