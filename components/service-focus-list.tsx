@@ -35,7 +35,11 @@ export function ServiceFocusList({ services }: { services: Service[] }) {
           id={service.slug}
           onMouseEnter={() => setHoveredIndex(index)}
           onMouseLeave={() => setHoveredIndex(null)}
-          className="group relative h-full scroll-mt-24 rounded-2xl p-1"
+          className={`group relative h-full scroll-mt-24 rounded-2xl p-1 ${
+            index === services.length - 1
+              ? "sm:col-span-2 sm:max-w-sm sm:justify-self-center lg:col-span-1 lg:max-w-none lg:col-start-2"
+              : ""
+          }`}
         >
           <AnimatePresence>
             {hoveredIndex === index && (

@@ -32,7 +32,7 @@ export function SparklesCTA({
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link
                 href={secondaryHref}
-                className="inline-block rounded-lg bg-white px-8 py-3 font-semibold text-ink transition-colors hover:bg-gray-100"
+                className="inline-block rounded-lg border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur transition-colors hover:bg-white/20"
               >
                 {secondaryLabel}
               </Link>

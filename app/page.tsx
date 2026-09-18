@@ -13,12 +13,14 @@ import { siteConfig } from "@/lib/site";
 function HeroHeader() {
   return (
     <Container className="relative z-10 py-10 md:py-16">
-      <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white ring-1 ring-white/20">
-        <span className="flex gap-0.5" aria-hidden="true">
-          <span className="h-2 w-2 rounded-full bg-accent" />
-          <span className="h-2 w-2 rounded-full bg-white" />
-          <span className="h-2 w-2 rounded-full bg-violet" />
-        </span>
+      <span className="inline-flex items-center gap-2 rounded-full bg-white/10 py-1.5 pl-1.5 pr-4 text-xs font-semibold uppercase tracking-wider text-white ring-1 ring-white/20">
+        <Image
+          src="/csc-digital-seva-logo.webp"
+          alt=""
+          width={40}
+          height={22}
+          className="h-5 w-auto flex-none rounded-sm bg-white/90 object-contain p-0.5"
+        />
         Authorized {siteConfig.csc}
       </span>
       <MaskedHeading
@@ -54,29 +56,6 @@ export default function Home() {
     <>
       {/* Hero */}
       <HeroParallax services={services} header={<HeroHeader />} />
-
-      {/* Franchise strip */}
-      <section className="border-y border-gray-200 bg-white py-8 dark:border-gray-800 dark:bg-gray-950">
-        <Container className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
-          <Image
-            src="/csc-digital-seva-logo.webp"
-            alt="CSC Digital Seva"
-            width={147}
-            height={80}
-            className="h-16 w-auto flex-none rounded-lg object-contain"
-          />
-          <p className="text-base leading-7 text-gray-600 dark:text-gray-400">
-            <span className="font-semibold text-gray-900 dark:text-white">
-              {siteConfig.name}
-            </span>{" "}
-            is an authorized franchise of{" "}
-            <span className="font-semibold text-gray-900 dark:text-white">
-              CSC Digital Seva
-            </span>
-            , operating under the Government of India&apos;s Common Service Centre scheme.
-          </p>
-        </Container>
-      </section>
 
       {/* Why choose us */}
       <section className="bg-gray-50 py-20 dark:bg-gray-950">

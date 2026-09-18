@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, type Variants } from "motion/react";
-import { GlareHover } from "@/components/glare-hover";
 import { siteConfig } from "@/lib/site";
 
 type IconProps = { className?: string };
@@ -70,11 +69,8 @@ const tile: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
 };
 
-// Chrome (border/background/radius) lives on the outer element; the glare
-// itself fills that box completely, so padding and layout move to the flex
-// row inside it — otherwise the glare would only cover the padding box.
 const tileChromeClassName =
-  "min-w-0 overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900";
+  "min-w-0 overflow-hidden rounded-2xl border border-gray-200 bg-white transition-colors hover:border-primary/40 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900";
 
 export function QuickContactGrid() {
   return (
@@ -105,21 +101,8 @@ export function QuickContactGrid() {
           </>
         );
 
-        const glare = (
-          <GlareHover
-            width="100%"
-            height="100%"
-            background="transparent"
-            borderColor="transparent"
-            borderRadius="1rem"
-            glareColor="#3fb6da"
-            glareOpacity={0.6}
-            glareAngle={-30}
-            glareSize={150}
-            transitionDuration={800}
-          >
-            <div className="flex h-full min-h-28 w-full min-w-0 items-center gap-4 p-5">{content}</div>
-          </GlareHover>
+        const inner = (
+          <div className="flex h-full min-h-28 w-full min-w-0 items-center gap-4 p-5">{content}</div>
         );
 
         return item.href ? (
@@ -128,13 +111,18 @@ export function QuickContactGrid() {
             href={item.href}
             variants={tile}
             whileHover={{ y: -2 }}
-            className={`${tileChromeClassName} block transition-colors hover:border-primary/40`}
+            className={`${tileChromeClassName} block`}
           >
-            {glare}
+            {inner}
           </motion.a>
         ) : (
-          <motion.div key={item.label} variants={tile} className={tileChromeClassName}>
-            {glare}
+          <motion.div
+            key={item.label}
+            variants={tile}
+            whileHover={{ y: -2 }}
+            className={tileChromeClassName}
+          >
+            {inner}
           </motion.div>
         );
       })}

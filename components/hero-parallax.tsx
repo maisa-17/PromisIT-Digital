@@ -56,14 +56,14 @@ export function HeroParallax({
   const opacity = useSpring(useTransform(scrollYProgress, [0, 0.2], [0.2, 1]), springConfig);
   const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.2], [20, 0]), springConfig);
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-500, 300]),
+    useTransform(scrollYProgress, [0, 0.2], [-500, 0]),
     springConfig
   );
 
   return (
     <div
       ref={ref}
-      className="relative flex h-[220vh] flex-col self-auto overflow-hidden bg-ink py-16 antialiased [perspective:1000px] [transform-style:preserve-3d]"
+      className="relative flex min-h-[220vh] flex-col self-auto overflow-hidden bg-ink py-16 antialiased [perspective:1000px] [transform-style:preserve-3d]"
     >
       {header}
       <motion.div style={{ rotateX, rotateZ, translateY, opacity }}>
@@ -85,7 +85,7 @@ function Row({
   reverse?: boolean;
 }) {
   return (
-    <div className={`mb-14 flex gap-8 ${reverse ? "flex-row-reverse" : "flex-row"}`}>
+    <div className={`mb-8 flex gap-6 ${reverse ? "flex-row-reverse" : "flex-row"}`}>
       {items.map((service, index) => (
         <ServiceTile
           key={service.slug}
@@ -111,7 +111,7 @@ function ServiceTile({
     <motion.div
       style={{ x: translate }}
       whileHover={{ y: -16 }}
-      className="group relative h-72 w-80 shrink-0 md:h-96 md:w-[26rem]"
+      className="group relative h-56 w-64 shrink-0 md:h-72 md:w-96"
     >
       <Link
         href={`/services#${service.slug}`}

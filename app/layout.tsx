@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { SplashCursorGate } from "@/components/splash-cursor-gate";
+import { WhatsAppToggleButton } from "@/components/whatsapp-toggle-button";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -50,6 +52,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <SplashCursorGate />
+        <WhatsAppToggleButton />
       </body>
     </html>
   );

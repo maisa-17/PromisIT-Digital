@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Container } from "@/components/container";
 import { CountUp } from "@/components/count-up";
 import { SectionHeading } from "@/components/section-heading";
-import SplashCursor from "@/components/splash-cursor";
 import { SparklesCTA } from "@/components/sparkles-cta";
 import { values } from "@/lib/data";
 import { siteConfig } from "@/lib/site";
@@ -77,8 +76,6 @@ const stats = [
 export default function AboutPage() {
   return (
     <>
-      <SplashCursor />
-
       {/* Intro */}
       <section className="relative overflow-hidden bg-gray-50 py-20 dark:bg-gray-950 md:py-28">
         <div

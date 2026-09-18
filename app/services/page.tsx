@@ -152,8 +152,8 @@ export default function ServicesPage() {
             {process.map((item, index) => {
               const Icon = item.icon;
               return (
-                <div key={item.step} className="relative">
-                  <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 transition-shadow hover:shadow-lg dark:border-gray-800 dark:bg-gray-900">
+                <div key={item.step} className="relative h-full">
+                  <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 transition-shadow hover:shadow-lg dark:border-gray-800 dark:bg-gray-900">
                     <div className="flex items-center gap-3">
                       <span
                         className={`inline-flex h-11 w-11 flex-none items-center justify-center rounded-xl ${item.accent.bg} ${item.accent.text}`}
