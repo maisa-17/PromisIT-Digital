@@ -68,8 +68,14 @@ export function HeroParallax({
       {header}
       <h2 className="sr-only">Our services</h2>
       <motion.div style={{ rotateX, rotateZ, translateY, opacity }}>
-        <Row items={firstRow} translate={translateX} reverse />
-        <Row items={secondRow} translate={translateXReverse} />
+        {/* The grid starts translated up ~500px and faded (see translateY /
+            opacity above) so rows 1-2 already overlap the initial viewport
+            before any scrolling — that's enough for the browser to treat
+            them as LCP candidates, so both skip native lazy-loading. Row 1
+            additionally gets `priority` since it's the one consistently
+            visible; row 2 only needs eager loading, not a full preload. */}
+        <Row items={firstRow} translate={translateX} reverse priority />
+        <Row items={secondRow} translate={translateXReverse} eager />
         <Row items={thirdRow} translate={translateX} reverse />
       </motion.div>
     </div>
@@ -80,10 +86,14 @@ function Row({
   items,
   translate,
   reverse = false,
+  priority = false,
+  eager = false,
 }: {
   items: Service[];
   translate: MotionValue<number>;
   reverse?: boolean;
+  priority?: boolean;
+  eager?: boolean;
 }) {
   return (
     <div className={`mb-8 flex gap-6 ${reverse ? "flex-row-reverse" : "flex-row"}`}>
@@ -93,6 +103,8 @@ function Row({
           service={service}
           translate={translate}
           accent={cardAccents[index % cardAccents.length]}
+          priority={priority}
+          eager={eager}
         />
       ))}
     </div>
@@ -103,10 +115,14 @@ function ServiceTile({
   service,
   translate,
   accent,
+  priority = false,
+  eager = false,
 }: {
   service: Service;
   translate: MotionValue<number>;
   accent: string;
+  priority?: boolean;
+  eager?: boolean;
 }) {
   return (
     <motion.div
@@ -128,6 +144,8 @@ function ServiceTile({
             sizes="(min-width: 768px) 26rem, 20rem"
             quality={90}
             className="object-cover"
+            priority={priority}
+            loading={!priority && eager ? "eager" : undefined}
           />
         ) : (
           <ServiceIcon icon={service.icon} className="h-16 w-16 text-white/25 sm:h-24 sm:w-24 md:h-32 md:w-32" />

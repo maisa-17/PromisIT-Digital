@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { MalayalamTranslateButton } from "@/components/malayalam-translate-button";
 import { NavLinks } from "@/components/nav-links";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { navLinks, siteConfig } from "@/lib/site";
@@ -38,6 +39,7 @@ export function SiteHeader() {
         <NavLinks />
 
         <div className="flex items-center gap-3">
+          <MalayalamTranslateButton />
           <ThemeToggle />
 
           <button

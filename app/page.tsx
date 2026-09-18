@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/container";
 import { CountUp } from "@/components/count-up";
 import { HeroParallax } from "@/components/hero-parallax";
-import MaskedHeading from "@/components/masked-heading";
+import { HeroTagline } from "@/components/hero-tagline";
 import { SectionHeading } from "@/components/section-heading";
 import { SparklesCTA } from "@/components/sparkles-cta";
 import { TestimonialsCarousel } from "@/components/testimonials-carousel";
@@ -13,7 +13,7 @@ import { siteConfig } from "@/lib/site";
 function HeroHeader() {
   return (
     <Container className="relative z-10 py-10 md:py-16">
-      <span className="inline-flex items-center gap-2 rounded-full bg-white/10 py-1.5 pl-1.5 pr-4 text-xs font-semibold uppercase tracking-wider text-white ring-1 ring-white/20">
+      <span className="inline-flex items-center gap-2.5 rounded-full bg-white/10 py-2 pl-2 pr-4 text-xs font-semibold uppercase tracking-wider text-white ring-1 ring-white/20">
         <Image
           src="/csc-digital-seva-logo.webp"
           alt=""
@@ -23,20 +23,7 @@ function HeroHeader() {
         />
         Authorized {siteConfig.csc}
       </span>
-      <MaskedHeading
-        tag="h1"
-        text={siteConfig.tagline}
-        src="/gallery/storefront.webp"
-        priority
-        align="left"
-        weight={800}
-        reveal="rise"
-        trigger="view"
-        tintColor="#ffffff"
-        tintOpacity={0.85}
-        tintBlend="normal"
-        className="mt-6 max-w-3xl"
-      />
+      <HeroTagline />
       <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
         {siteConfig.description}
       </p>

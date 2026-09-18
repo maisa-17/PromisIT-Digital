@@ -20,6 +20,17 @@ const themeInitScript = `
 })();
 `;
 
+// Defines the callback the Google Translate widget script (loaded below)
+// invokes once ready. Must be defined before that script runs.
+const googleTranslateInitScript = `
+window.googleTranslateElementInit = function () {
+  new window.google.translate.TranslateElement(
+    { pageLanguage: "en", includedLanguages: "ml", autoDisplay: false },
+    "google_translate_element"
+  );
+};
+`;
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -43,12 +54,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <Script id="theme-init" strategy="beforeInteractive">
           {themeInitScript}
         </Script>
+        <Script id="google-translate-init" strategy="beforeInteractive">
+          {googleTranslateInitScript}
+        </Script>
+        <Script
+          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          strategy="afterInteractive"
+        />
+        <div id="google_translate_element" className="hidden" />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />

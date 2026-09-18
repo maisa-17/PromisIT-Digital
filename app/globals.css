@@ -96,6 +96,29 @@ body {
   color: var(--foreground);
 }
 
+/* Google Website Translator: drive it from our own button and hide every
+   piece of its default UI (banner, tooltip, highlight) so nothing but the
+   translated text shows. Google ships the top banner as an iframe with an
+   obfuscated class name (only the shared "skiptranslate" class is stable),
+   so target that rather than the old .goog-te-banner-frame class. */
+iframe.skiptranslate,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip:hover,
+#google_translate_element {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
+
 /* Brand accent strip — sky blue / coral / violet, echoing the P&D logo */
 .primary-strip {
   height: 4px;
