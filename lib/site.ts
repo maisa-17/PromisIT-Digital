@@ -4,7 +4,7 @@ export const siteConfig = {
   brandLine2: "Digital Solutions",
   // The CSC franchise identity this business operates under
   csc: "CSC Digital Seva Kendra, Kakkanad",
-  tagline: "Kakkanad's One-Stop Digital Service Centre",
+  tagline: "Kakkanad's OneStop Digital Service Centre",
   description:
     "Authorized CSC Digital Seva Kendra in Kakkanad, Kerala — RTO, PAN card, passport, certificates, insurance, ration card, bill payments and 13+ other government services, all under one roof.",
   email: "cscdigitalsevakkd@gmail.com",

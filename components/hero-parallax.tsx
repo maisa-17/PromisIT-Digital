@@ -63,7 +63,7 @@ export function HeroParallax({
   return (
     <div
       ref={ref}
-      className="relative flex min-h-[220vh] flex-col self-auto overflow-hidden bg-ink py-16 antialiased [perspective:1000px] [transform-style:preserve-3d]"
+      className="relative flex min-h-[150vh] flex-col self-auto overflow-hidden bg-ink py-16 antialiased sm:min-h-[180vh] lg:min-h-[220vh] [perspective:1000px] [transform-style:preserve-3d]"
     >
       {header}
       <h2 className="sr-only">Our services</h2>
@@ -112,7 +112,7 @@ function ServiceTile({
     <motion.div
       style={{ x: translate }}
       whileHover={{ y: -16 }}
-      className="group relative h-56 w-64 shrink-0 md:h-72 md:w-96"
+      className="group relative h-40 w-48 shrink-0 sm:h-56 sm:w-64 md:h-72 md:w-96"
     >
       <Link
         href={`/services#${service.slug}`}
@@ -130,10 +130,10 @@ function ServiceTile({
             className="object-cover"
           />
         ) : (
-          <ServiceIcon icon={service.icon} className="h-24 w-24 text-white/25 md:h-32 md:w-32" />
+          <ServiceIcon icon={service.icon} className="h-16 w-16 text-white/25 sm:h-24 sm:w-24 md:h-32 md:w-32" />
         )}
-        <div className="absolute inset-0 bg-black opacity-0 transition-opacity group-hover:opacity-40" />
-        <h3 className="absolute bottom-5 left-5 right-5 text-lg font-bold text-white opacity-0 transition-opacity group-hover:opacity-100">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-100 transition-opacity md:from-black md:via-black md:to-black md:opacity-0 md:group-hover:opacity-40" />
+        <h3 className="absolute bottom-3 left-3 right-3 text-sm font-bold text-white opacity-100 transition-opacity sm:bottom-5 sm:left-5 sm:right-5 sm:text-lg md:opacity-0 md:group-hover:opacity-100">
           {service.title}
         </h3>
       </Link>
