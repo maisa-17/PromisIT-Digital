@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { announceLanguageChange, useLanguage } from "@/lib/use-language";
+import { announceLanguageChange, resetLanguageCookie, useLanguage } from "@/lib/use-language";
 
 type Lang = "en" | "ml";
 
@@ -69,7 +69,7 @@ export function MalayalamTranslateButton() {
     // "/en/en") leaves the widget free to re-derive a language from the
     // browser's own locale on the next load, which can silently re-apply
     // Malayalam and make this button look like it's doing nothing.
-    document.cookie = "googtrans=/en/en; path=/";
+    resetLanguageCookie();
     window.location.reload();
   }
 

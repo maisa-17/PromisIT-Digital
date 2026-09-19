@@ -16,8 +16,32 @@ function subscribe(callback: () => void) {
   return () => window.removeEventListener(LANGUAGE_CHANGE_EVENT, callback);
 }
 
+// Anchored to a whole cookie so a similarly named cookie or a longer value
+// (e.g. "googtrans=/en/ml-IN") can't match by accident.
+const MALAYALAM_COOKIE = /(?:^|;\s*)googtrans=\/en\/ml(?:;|$)/;
+
 function getSnapshot(): AppLanguage {
-  return document.cookie.includes("googtrans=/en/ml") ? "ml" : "en";
+  return MALAYALAM_COOKIE.test(document.cookie) ? "ml" : "en";
+}
+
+// Pins the page back to English. The Google widget writes googtrans scoped to
+// the whole domain (".example.com") on real hosts, while our own writes are
+// host-only, so the two coexist and overwriting just ours leaves the domain
+// one behind — the page reloads still translated. Expire every variant first,
+// then pin the host-only "/en/en" (see MalayalamTranslateButton.toEnglish for
+// why it's pinned rather than left deleted).
+export function resetLanguageCookie() {
+  const expired = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+  document.cookie = expired;
+
+  const parts = window.location.hostname.split(".");
+  for (let i = 0; i < parts.length - 1; i++) {
+    const domain = parts.slice(i).join(".");
+    document.cookie = `${expired}; domain=${domain}`;
+    document.cookie = `${expired}; domain=.${domain}`;
+  }
+
+  document.cookie = "googtrans=/en/en; path=/";
 }
 
 function getServerSnapshot(): AppLanguage {
