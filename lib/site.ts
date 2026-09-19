@@ -15,7 +15,7 @@ export const siteConfig = {
   whatsappDisplay: "+91 90746 49349",
   address:
     "Common Service Center (CSC) Digital Seva, Near Ambadimoola, Kakkanad - NGO Quarters Rd, Kakkanad, Kerala 682030",
-  hours: "Mon – Sat, 9:00 AM – 6:00 PM",
+  hours: "Mon – Sat, 9:30 AM – 6:00 PM",
 };
 
 export const navLinks = [

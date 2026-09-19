@@ -5,6 +5,8 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { SplashCursorGate } from "@/components/splash-cursor-gate";
 import { WhatsAppToggleButton } from "@/components/whatsapp-toggle-button";
+import { RouteProgressBar } from "@/components/route-progress-bar";
+import { PageLoader } from "@/components/page-loader";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -69,6 +71,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           strategy="afterInteractive"
         />
         <div id="google_translate_element" className="hidden" />
+        <PageLoader />
+        <RouteProgressBar />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />

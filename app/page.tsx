@@ -63,7 +63,7 @@ export default function Home() {
             {[
               { stat: "13+", label: "Services offered", accent: "bg-primary" },
               { stat: "6", label: "Days open a week", accent: "bg-accent" },
-              { stat: "9-6", label: "Daily service hours", accent: "bg-violet" },
+              { stat: "9:30-6", label: "Daily service hours", accent: "bg-violet" },
               { stat: "100%", label: "Authorized CSC centre", accent: "bg-primary" },
             ].map((item) => (
               <div

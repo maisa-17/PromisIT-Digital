@@ -223,36 +223,78 @@ export type Testimonial = {
   initials: string;
 };
 
-// Placeholder testimonials — replace with real feedback from your customers
-// before publishing this site live.
+// Sample testimonials with representative local names and places — swap
+// these for genuine, consented customer feedback before publishing live.
 export const testimonials: Testimonial[] = [
   {
     quote:
       "Got my PAN card correction done in one visit — no running around to different offices. Very helpful staff.",
-    name: "Customer, Kakkanad",
+    name: "Anoop Menon, Kakkanad",
     role: "PAN Card Service",
-    initials: "K",
+    initials: "AM",
   },
   {
     quote:
-      "They helped my father apply for his income certificate and explained every step patiently. Truly a relief.",
-    name: "Customer, Kakkanad",
+      "They helped my father apply for his building certificate and explained every step patiently. Truly a relief.",
+    name: "Divya Pillai, Ambadimoola",
     role: "Certificate Service",
-    initials: "K",
+    initials: "DP",
   },
   {
     quote:
       "Paid my electricity bill and recharged my phone in the same visit. Quick, honest, and close to home.",
-    name: "Customer, Kakkanad",
+    name: "Sudheesh Kumar, NGO Quarters",
     role: "Bill Payment Service",
-    initials: "K",
+    initials: "SK",
   },
   {
     quote:
       "Guided me through my passport application from start to finish. I didn't have to figure out the portal myself.",
-    name: "Customer, Kakkanad",
+    name: "Reshma Thomas, Thrikkakara",
     role: "Passport Assistance",
-    initials: "K",
+    initials: "RT",
+  },
+  {
+    quote:
+      "Corrected my address on the voter ID within a few days. They kept me updated instead of leaving me guessing.",
+    name: "Vishnu Nair, Padamugal",
+    role: "Voter ID Service",
+    initials: "VN",
+  },
+  {
+    quote:
+      "Renewed my driving licence here after putting it off for months — the RTO paperwork finally made sense.",
+    name: "Latha Varghese, Vazhakkala",
+    role: "RTO Service",
+    initials: "LV",
+  },
+  {
+    quote:
+      "Applied for a new ration card and they double-checked every document before submitting, so it went through the first time.",
+    name: "Rahul Krishnan, Infopark",
+    role: "Ration Card Service",
+    initials: "RK",
+  },
+  {
+    quote:
+      "Sorted out my property tax payment at the municipality without a single follow-up trip. Saved me a whole day.",
+    name: "Sini Joseph, BMC",
+    role: "Land & Municipality Service",
+    initials: "SJ",
+  },
+  {
+    quote:
+      "Helped my daughter with her scholarship application and college forms — patient with all our questions.",
+    name: "Manoj Pillai, Chittethukara",
+    role: "Student Support Service",
+    initials: "MP",
+  },
+  {
+    quote:
+      "Booked our family's train tickets for Onam in minutes, right down the road instead of queuing at the station.",
+    name: "Aswathy Balakrishnan, Karimakkad",
+    role: "Travel & Ticket Booking",
+    initials: "AB",
   },
 ];
 
