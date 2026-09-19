@@ -1,13 +1,17 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 /**
  * Animates the leading number in a stat string (e.g. "13+", "100%") from 0
  * up to its target value once it scrolls into view. Any prefix/suffix around
  * the number (a "+", "%", or a trailing range like "-6") is preserved as
  * static text. Strings with no leading number (or with reduced-motion
- * requested) render as-is, unanimated.
+ * requested) render as-is, unanimated. Marked untranslatable: Google
+ * Translate rewrites this span's text nodes into its own <font> wrappers,
+ * and React's next update to a node it no longer recognizes throws
+ * (removeChild/insertBefore), permanently freezing the animation.
  */
 
 const DURATION_MS = 1400;
@@ -61,7 +65,7 @@ export function CountUp({ value, className }: { value: string; className?: strin
   }, [target]);
 
   return (
-    <span ref={rootRef} className={className}>
+    <span ref={rootRef} className={cn(className, "notranslate")} translate="no">
       {display}
       {suffix}
     </span>

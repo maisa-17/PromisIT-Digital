@@ -22,6 +22,25 @@ const themeInitScript = `
 })();
 `;
 
+// The Google Website Translator widget can auto-translate on its own,
+// independent of the autoDisplay:false option below, when a visitor's
+// browser language matches one of includedLanguages — regardless of domain,
+// but most noticeable for Malayalam-preferring browsers hitting the live
+// site. Pinning an explicit "no translation needed" cookie before the
+// widget's own script runs (it reads this cookie on init) stops that
+// browser-language auto-detection from ever kicking in. A cookie already
+// being present means the visitor (or our own toEnglish/toMalayalam
+// handlers) already made an explicit choice on this domain, so leave it be.
+const translateLanguageGuardScript = `
+(function () {
+  try {
+    if (!/(?:^|; )googtrans=/.test(document.cookie)) {
+      document.cookie = "googtrans=/en/en; path=/";
+    }
+  } catch (e) {}
+})();
+`;
+
 // Defines the callback the Google Translate widget script (loaded below)
 // invokes once ready. Must be defined before that script runs.
 const googleTranslateInitScript = `
@@ -62,6 +81,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         <Script id="theme-init" strategy="beforeInteractive">
           {themeInitScript}
+        </Script>
+        <Script id="translate-language-guard" strategy="beforeInteractive">
+          {translateLanguageGuardScript}
         </Script>
         <Script id="google-translate-init" strategy="beforeInteractive">
           {googleTranslateInitScript}

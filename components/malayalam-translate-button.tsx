@@ -64,8 +64,12 @@ export function MalayalamTranslateButton() {
     setPending(true);
     // The widget's <select> has no option for the page's own source
     // language, so setting it to "en" silently no-ops and leaves the page
-    // translated. Clearing the cookie and reloading is the reliable revert.
-    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    // translated. Reloading is the reliable revert — but deleting the
+    // cookie outright (rather than pinning it to the self-mapped
+    // "/en/en") leaves the widget free to re-derive a language from the
+    // browser's own locale on the next load, which can silently re-apply
+    // Malayalam and make this button look like it's doing nothing.
+    document.cookie = "googtrans=/en/en; path=/";
     window.location.reload();
   }
 
