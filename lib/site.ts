@@ -8,9 +8,12 @@ export const siteConfig = {
   description:
     "Authorized CSC Digital Seva Kendra in Kakkanad, Kerala — RTO, PAN card, passport, certificates, insurance, ration card, bill payments and 13+ other government services, all under one roof.",
   // Canonical production origin — every absolute URL in metadata (OpenGraph,
-  // sitemap, robots, canonical links) is built from this. Update here if the
-  // domain ever changes; nothing else should hardcode it.
-  url: "https://promisitdigital.com",
+  // sitemap, robots, canonical links) is built from this. Must be the host
+  // that actually serves the site, not one that 308-redirects elsewhere
+  // (Vercel redirects the apex to www here) — a sitemap/canonical pointing at
+  // a redirecting host is the #1 cause of Search Console's "couldn't fetch".
+  // Update here if the domain ever changes; nothing else should hardcode it.
+  url: "https://www.promisitdigital.com",
   keywords: [
     "CSC Digital Seva Kendra Kakkanad",
     "CSC centre Kakkanad",
