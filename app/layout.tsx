@@ -63,11 +63,80 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  // Base for every relative URL used in metadata below (OpenGraph images,
+  // canonical links) — without this they'd resolve against whatever host
+  // served the request instead of the real domain.
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: `${siteConfig.name} | PAN Card, Certificates & Government Services in Kakkanad`,
     template: `%s | ${siteConfig.shortName}`,
   },
   description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
+    description: siteConfig.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
+    description: siteConfig.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
+  },
+  // Proves domain ownership for Google Search Console (Settings > Ownership
+  // verification > HTML tag). Renders as <meta name="google-site-verification">.
+  verification: {
+    google: "DAloxITeMoFa_KXXTj1WfEnxjN8YHoPHxHll-DNTJt0",
+  },
+};
+
+// LocalBusiness structured data — tells Google this is a real, visitable
+// service centre (address, phone, hours, geo) so it's eligible for Maps/local
+// pack results and rich snippets, independent of the on-page copy above.
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: siteConfig.name,
+  alternateName: siteConfig.csc,
+  description: siteConfig.description,
+  url: siteConfig.url,
+  telephone: siteConfig.phoneDisplay,
+  email: siteConfig.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteConfig.address,
+    addressLocality: "Kakkanad",
+    addressRegion: "Kerala",
+    postalCode: "682030",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: siteConfig.geo.latitude,
+    longitude: siteConfig.geo.longitude,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "09:30",
+    closes: "18:00",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -79,6 +148,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <Script
+          id="local-business-jsonld"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
         <Script id="theme-init" strategy="beforeInteractive">
           {themeInitScript}
         </Script>

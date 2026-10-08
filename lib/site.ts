@@ -7,6 +7,30 @@ export const siteConfig = {
   tagline: "Kakkanad's OneStop Digital Service Centre",
   description:
     "Authorized CSC Digital Seva Kendra in Kakkanad, Kerala — RTO, PAN card, passport, certificates, insurance, ration card, bill payments and 13+ other government services, all under one roof.",
+  // Canonical production origin — every absolute URL in metadata (OpenGraph,
+  // sitemap, robots, canonical links) is built from this. Update here if the
+  // domain ever changes; nothing else should hardcode it.
+  url: "https://promisitdigital.com",
+  keywords: [
+    "CSC Digital Seva Kendra Kakkanad",
+    "CSC centre Kakkanad",
+    "PAN card Kakkanad",
+    "passport application Kakkanad",
+    "RTO services Kakkanad",
+    "government certificates Kochi",
+    "ration card Kerala",
+    "bill payment centre Kakkanad",
+    "Common Service Centre Kerala",
+    "Akshaya center near me",
+    "CSC center near me",
+    "PAN card near me",
+    "passport near me",
+    "printing near me",
+    "photocopy near me",
+    "lamination near me",
+    "RC transfer near me",
+    "driving licence near me",
+  ],
   email: "cscdigitalsevakkd@gmail.com",
   emailCc: "promisitsolutions@gmail.com",
   phone: "9074587256",
@@ -16,6 +40,8 @@ export const siteConfig = {
   address:
     "Common Service Center (CSC) Digital Seva, Near Ambadimoola, Kakkanad - NGO Quarters Rd, Kakkanad, Kerala 682030",
   hours: "Mon – Sat, 9:30 AM – 6:00 PM",
+  // For the LocalBusiness JSON-LD below — approximate Kakkanad coordinates.
+  geo: { latitude: 10.0027, longitude: 76.3432 },
 };
 
 export const navLinks = [

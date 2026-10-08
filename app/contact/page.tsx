@@ -5,9 +5,22 @@ import { MapEmbed } from "@/components/map-embed";
 import { QuickContactGrid } from "@/components/quick-contact-grid";
 import { siteConfig } from "@/lib/site";
 
+const title = "Contact Us";
+const description = `Get in touch with ${siteConfig.name} in Kakkanad, Kerala — by phone, WhatsApp, email or in person.`;
+
 export const metadata: Metadata = {
-  title: "Contact Us",
-  description: `Get in touch with ${siteConfig.name} in Kakkanad, Kerala — by phone, WhatsApp, email or in person.`,
+  title,
+  description,
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    url: "/contact",
+    title: `${title} | ${siteConfig.shortName}`,
+    description,
+  },
+  twitter: {
+    title: `${title} | ${siteConfig.shortName}`,
+    description,
+  },
 };
 
 type IconProps = { className?: string };

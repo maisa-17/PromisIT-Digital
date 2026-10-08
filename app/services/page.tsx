@@ -7,9 +7,22 @@ import { SparklesCTA } from "@/components/sparkles-cta";
 import { services } from "@/lib/data";
 import { siteConfig } from "@/lib/site";
 
+const title = "Services";
+const description = `Explore all ${siteConfig.name} services — RTO, certificates, PAN card, passport, Voter ID, insurance, ration card, bill payments, land & municipality, student support, printing and more.`;
+
 export const metadata: Metadata = {
-  title: "Services",
-  description: `Explore all ${siteConfig.name} services — RTO, certificates, PAN card, passport, Voter ID, insurance, ration card, bill payments, land & municipality, student support, printing and more.`,
+  title,
+  description,
+  alternates: { canonical: "/services" },
+  openGraph: {
+    url: "/services",
+    title: `${title} | ${siteConfig.shortName}`,
+    description,
+  },
+  twitter: {
+    title: `${title} | ${siteConfig.shortName}`,
+    description,
+  },
 };
 
 type IconProps = { className?: string };

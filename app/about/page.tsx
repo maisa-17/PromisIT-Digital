@@ -6,9 +6,22 @@ import { SparklesCTA } from "@/components/sparkles-cta";
 import { values } from "@/lib/data";
 import { siteConfig } from "@/lib/site";
 
+const title = "About Us";
+const description = `Learn about ${siteConfig.name} — an authorized Common Service Centre in Kakkanad, our mission, vision and values.`;
+
 export const metadata: Metadata = {
-  title: "About Us",
-  description: `Learn about ${siteConfig.name} — an authorized Common Service Centre in Kakkanad, our mission, vision and values.`,
+  title,
+  description,
+  alternates: { canonical: "/about" },
+  openGraph: {
+    url: "/about",
+    title: `${title} | ${siteConfig.shortName}`,
+    description,
+  },
+  twitter: {
+    title: `${title} | ${siteConfig.shortName}`,
+    description,
+  },
 };
 
 type IconProps = { className?: string };

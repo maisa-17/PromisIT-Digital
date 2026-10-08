@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/container";
@@ -9,6 +10,14 @@ import { SparklesCTA } from "@/components/sparkles-cta";
 import { TestimonialsCarousel } from "@/components/testimonials-carousel";
 import { services, testimonials } from "@/lib/data";
 import { siteConfig } from "@/lib/site";
+
+// No title here: the root layout's default title (it already covers the
+// "PAN Card, Certificates & Government Services" keywords) applies as-is for
+// "/", so repeating it would just duplicate that string instead of adding
+// anything search engines weight.
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 function HeroHeader() {
   return (

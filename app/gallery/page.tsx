@@ -5,9 +5,22 @@ import { GalleryGrid } from "@/components/gallery-grid";
 import { galleryItems } from "@/lib/data";
 import { siteConfig } from "@/lib/site";
 
+const title = "Gallery";
+const description = `A look inside ${siteConfig.name} — our service counter and community outreach camps in Kakkanad.`;
+
 export const metadata: Metadata = {
-  title: "Gallery",
-  description: `A look inside ${siteConfig.name} — our service counter and community outreach camps in Kakkanad.`,
+  title,
+  description,
+  alternates: { canonical: "/gallery" },
+  openGraph: {
+    url: "/gallery",
+    title: `${title} | ${siteConfig.shortName}`,
+    description,
+  },
+  twitter: {
+    title: `${title} | ${siteConfig.shortName}`,
+    description,
+  },
 };
 
 export default function GalleryPage() {
