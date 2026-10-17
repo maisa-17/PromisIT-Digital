@@ -131,6 +131,19 @@ const localBusinessJsonLd = {
     latitude: siteConfig.geo.latitude,
     longitude: siteConfig.geo.longitude,
   },
+  // Signals the catchment this centre actively serves (not just its pin),
+  // so "near me" searches from across Kakkanad and neighbouring areas can
+  // surface it — a hint for Google, not a guarantee of ranking within the
+  // radius.
+  areaServed: {
+    "@type": "GeoCircle",
+    geoMidpoint: {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.geo.latitude,
+      longitude: siteConfig.geo.longitude,
+    },
+    geoRadius: "10000",
+  },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
