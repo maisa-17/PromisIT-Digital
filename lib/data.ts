@@ -27,7 +27,7 @@ export const services: Service[] = [
   {
     slug: "rto-services",
     title: "RTO / Motor Vehicle Services",
-    summary: "Driving licence and RC services, without the RTO queue.",
+    summary: "Driving licence and RC services in Kakkanad, without the RTO queue.",
     description:
       "From a new learner's licence to a vehicle ownership transfer, we handle your Regional Transport Office applications correctly the first time.",
     features: [
@@ -57,7 +57,7 @@ export const services: Service[] = [
   {
     slug: "pan-card",
     title: "PAN Card Services",
-    summary: "New PAN applications, corrections and reprints.",
+    summary: "New PAN applications, corrections and reprints — right here in Kakkanad.",
     description:
       "We help you apply for a new PAN card, correct existing details, or get a reprint — no confusing forms, no repeat trips.",
     features: [
@@ -72,7 +72,7 @@ export const services: Service[] = [
   {
     slug: "passport",
     title: "Passport Services",
-    summary: "New, Tatkal, renewal and correction applications.",
+    summary: "New, Tatkal, renewal and correction applications, from our Kakkanad centre.",
     description:
       "We guide you through the online Passport Seva application, document checklist and appointment booking process.",
     features: [
@@ -178,7 +178,7 @@ export const services: Service[] = [
   {
     slug: "printing-lamination",
     title: "Printing, Lamination & PVC Cards",
-    summary: "Print, laminate and get durable PVC ID cards made.",
+    summary: "Print, laminate and get durable PVC ID cards made — in Kakkanad.",
     description:
       "Quick, affordable printing and document services, plus durable lamination and PVC card printing for your ID documents.",
     features: [

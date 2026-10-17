@@ -127,12 +127,18 @@ export default function ServicesPage() {
             Services
           </p>
           <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-gray-900 dark:text-white md:text-5xl">
-            Government & digital services for every resident
+            Government & digital services in Kakkanad, for every resident
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-400">
-            From RTO paperwork to passport applications, we handle the
-            process so you don&apos;t have to navigate government portals
-            alone. Jump straight to what you need:
+            From RTO paperwork to passport applications, our Kakkanad centre
+            handles the process so you don&apos;t have to navigate government
+            portals alone. Jump straight to what you need:
+          </p>
+          <p className="mt-4 max-w-2xl text-sm text-gray-500 dark:text-gray-500">
+            Looking for an Akshaya Centre near Kakkanad? We&apos;re an
+            authorized CSC Digital Seva Kendra offering the same walk-in
+            government services — PAN card, passport, RTO, certificates and
+            more — all under one roof.
           </p>
           <ServiceJumpLinks services={services} />
         </Container>
